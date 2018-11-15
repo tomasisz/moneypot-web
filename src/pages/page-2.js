@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import hi from 'hookedin-lib'
 
+import Repl from '../components/repl';
+
 import Layout from '../components/layout'
 
 
@@ -27,6 +29,8 @@ class DemoPrivKey extends React.Component {
       <div>
         <h3>{ this.state.privkey.toBech() }</h3>
         <button onClick={ this.newPrivkey }>New!</button>
+        <hr />
+        <Repl>hi.PrivateKey.fromRand().toBech()</Repl>
       </div>
     );
   }
