@@ -5,8 +5,6 @@ import hi from 'hookedin-lib'
 import Layout from '../components/layout'
 
 
-
-
 class DemoPrivKey extends React.Component {
 
   constructor(props) {
@@ -15,12 +13,12 @@ class DemoPrivKey extends React.Component {
     this.newPrivkey = this.newPrivkey.bind(this);
 
     this.state = {
-      privkey: hi.crypto.PrivateKey.fromRand()
+      privkey: hi.PrivateKey.fromRand()
     };
   }
 
   newPrivkey() {
-    this.setState({ privkey: hi.crypto.PrivateKey.fromRand() });
+    this.setState({ privkey: hi.PrivateKey.fromRand() });
   }
 
   render() {
