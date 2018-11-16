@@ -8,7 +8,8 @@ import favicon from '../../static/favicons/favicon.ico'
 
 
 import Header from './header'
-import './layout.css'
+import '../styles/layout.scss'
+
 
 const Layout = ({ children }) => (
   <StaticQuery
