@@ -7,7 +7,7 @@ import icon32 from '../../static/favicons/favicon-32x32.png'
 import favicon from '../../static/favicons/favicon.ico'
 
 
-import Header from './header'
+import CustomNavbar from './custom-navbar'
 import '../styles/layout.scss'
 
 
@@ -38,7 +38,7 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <CustomNavbar />
         <div
           style={{
             margin: '0 auto',
