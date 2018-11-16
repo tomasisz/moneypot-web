@@ -10,8 +10,23 @@ export default class Repl extends React.Component {
     this.onRun = this.onRun.bind(this);
     this.state = {
       value: this.props.children,
-      result: null,
+      result: Repl.run(this.props.children),
     }
+  }
+
+  static run(code) {
+    let r;
+    try {
+      // eslint-disable-next-line
+      const hi = hiImport;
+      // eslint-disable-next-line
+      r = eval(code);
+    } catch (ex) {
+      console.error(ex);
+      return "Caught exception " + ex + " and logged to browser console";
+    }
+
+    return (typeof r === 'string') ? r : JSON.stringify(r, null, 4);
   }
 
   onChange(event) {
@@ -22,25 +37,25 @@ export default class Repl extends React.Component {
   }
 
   onRun() {
-    let r;
-    try {
-      // eslint-disable-next-line
-      const hi = hiImport;
-      // eslint-disable-next-line
-      r = eval(this.state.value);
-    } catch (ex) {
-      this.setState({ result: "Caught exception: " + ex });
-      return;
+    this.setState({ result: Repl.run(this.state.value) })
+  }
+
+  info() {
+    if (this.state.result) {
+      return <span><strong>Result: </strong>{ this.state.result }</span>
+    } else {
+      return <small>Code will execute unsandboxed. Do not run untrusted code.</small>
     }
 
-    this.setState({ result: <div>Got result: {r.toString()}</div>})
   }
+
+
 
   render() {
     return <div>
       <textarea style={ { display: 'block' }}
                 value={this.state.value} onChange={ this.onChange } cols={80} rows={3} />
-      <button onClick={ this.onRun }>Run!</button> { this.state.result }
+      {  this.info() }<button onClick={ this.onRun }>Run!</button>
     </div>
   }
 }
