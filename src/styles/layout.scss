@@ -10,14 +10,14 @@
 
 // Reassign color vars to semantic color scheme
 $theme-colors: (
-        primary: $purple,
-        secondary: $gray-600,
+        primary: $theme-light,
+        secondary: $theme-dark,
         success: $green,
         info: $cyan,
         warning: $yellow,
         danger: $red,
         light: $gray-100,
-        dark: $gray-800,
+        dark: $theme-dark,
 ) !default;
 
 // Options
@@ -47,7 +47,7 @@ $container-max-widths: (
 // Settings for the `<body>` element.
 
 $body-bg: $white !default;
-$body-color: $gray-700 !default;
+$body-color: $blue-nights !default;
 $inverse-bg: $gray-900 !default;
 $inverse-color: $gray-600 !default;
 
@@ -62,16 +62,20 @@ $link-hover-decoration: none !default;
 @import './fonts.scss';
 
 // Navbar
-$navbar-dark-color: red;
-$navbar-light-color: pink;
+$navbar-light-color:                rgba($theme-light, 1) !default;
+$navbar-light-hover-color:          rgba($theme-dark, .7) !default;
+$navbar-light-active-color:         rgba($theme-dark, .9) !default;
+$navbar-light-disabled-color:       rgba($theme-dark, .3) !default;
+$navbar-light-toggler-border-color: $theme-dark;
 
-// Jumbotron
 
-$jumbotron-bg: red;
+//Cards
+$card-border-color: transparent !default;
 
-// Import bootstrap
+  // Import bootstrap
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 
+$body-color: $green !default;
 
 
 html {
@@ -273,7 +277,6 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
   font-family: 'Nunito', sans-serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -691,4 +694,15 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+// Footer
+footer {
+  background: $theme-dark;
+}
+footer a {
+  color: $white;
+}
+footer a:active, footer a:hover {
+  color: $pink;
 }

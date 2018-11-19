@@ -10,11 +10,11 @@ import {
 import logo from '../images/logo.png'
 
 const CustomNavbar = () => (
-    <Navbar color="light" light expand="md">
+    <Navbar light expand="md">
         <Link
             className="navbar-brand"
             to="/"
-            style={{fontWeight: '700'}}
+            style={{fontWeight: '700', letterSpacing:".05rem"}}
         >
             Hookedin
         </Link>

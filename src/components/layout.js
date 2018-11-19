@@ -5,9 +5,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import icon16 from '../../static/favicons/favicon-16x16.png'
 import icon32 from '../../static/favicons/favicon-32x32.png'
 import favicon from '../../static/favicons/favicon.ico'
-
-
 import CustomNavbar from './custom-navbar'
+import Footer from './footer'
 import '../styles/layout.scss'
 
 
@@ -42,13 +41,14 @@ const Layout = ({ children }) => (
         <div
           style={{
             margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
+            padding: '0px 1rem 1.5rem',
             paddingTop: 0,
+              minHeight: '70vh',
           }}
         >
           {children}
         </div>
+          <Footer/>
       </>
     )}
   />

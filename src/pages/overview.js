@@ -1,15 +1,13 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
 import Layout from '../components/layout'
-import Hero from '../components/hero'
-import {
-    Button
-} from "reactstrap";
+import SectionDiv from '../components/section-div'
+
 
 const Overview = () => (
     <Layout>
+        <SectionDiv>
             <h1>Overview</h1>
+        </SectionDiv>
     </Layout>
 )
 

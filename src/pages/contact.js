@@ -4,13 +4,13 @@ import SectionDiv from '../components/section-div'
 
 
 
-const Docs = () => (
+const Contact = () => (
     <Layout>
         <SectionDiv>
-            <h1>Docs</h1>
+            <h1>Contact</h1>
         </SectionDiv>
     </Layout>
 )
 
-export default Docs
+export default Contact
 
