@@ -1,35 +1,39 @@
 import React from 'react'
+import { Link } from 'gatsby'
+
 import {
     CardDeck,
     Card, CardImg, CardText,
-    CardBody,
-    Button
+    CardBody, Button
 } from "reactstrap";
+import fastImg from '../images/fast.svg'
+import cheapImg from '../images/cheap.svg'
+import privateImg from '../images/private.svg'
 
 const IndexAdvantages = () => (
     <CardDeck>
         <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="fast" />
+            <CardImg top src={fastImg} alt="fast" style={{ width: '50%', margin: 'auto'}}/>
             <CardBody>
                 <h3 style={{ marginBottom: '1rem'}}>It's fast, almost instant!</h3>
                 <CardText>Some text</CardText>
-                <Button>Button</Button>
+                <Link to="/">Learn More</Link>
             </CardBody>
         </Card>
         <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="privacy" />
+            <CardImg top src={privateImg} alt="privacy" style={{ width: '50%', margin: 'auto'}} />
             <CardBody>
                 <h3 style={{ marginBottom: '1rem'}}>Protects your privacy</h3>
                 <CardText>Some text</CardText>
-                <Button>Button</Button>
+                <Button>Learn More</Button>
             </CardBody>
         </Card>
         <Card>
-            <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="cost" />
+            <CardImg top src={cheapImg} alt="cost" style={{ width: '50%', margin: 'auto'}}/>
             <CardBody>
                 <h3 style={{ marginBottom: '1rem'}}>Very low fees!</h3>
                 <CardText>Some text</CardText>
-                <Button>Button</Button>
+                <Button>Learn More</Button>
             </CardBody>
         </Card>
     </CardDeck>

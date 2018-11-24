@@ -10,7 +10,7 @@ import Footer from './footer'
 import '../styles/layout.scss'
 
 
-const Layout = ({ children }) => (
+const Layout = ({ children, isHomepage }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -37,7 +37,7 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <CustomNavbar />
+        <CustomNavbar isHomepage={isHomepage} />
         <div
           style={{
             margin: '0 auto',

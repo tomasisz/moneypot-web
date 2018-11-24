@@ -9,14 +9,20 @@ import {
 } from "reactstrap";
 import logo from '../images/logo.png'
 
-const CustomNavbar = () => (
-    <Navbar light expand="md">
+
+const CustomNavbar = (props) => {
+    let {isHomepage} = props
+
+    let navbarColorClass = isHomepage ? 'custom-navbar-homepage' : 'custom-navbar-not-homepage';
+
+    return(
+    <Navbar expand="md">
         <Link
-            className="navbar-brand"
+            className={'custom-navbar-brand '+ navbarColorClass }
             to="/"
             style={{fontWeight: '700', letterSpacing:".05rem"}}
         >
-            Hookedin
+            hookedin
         </Link>
         <img
             src={logo}
@@ -27,16 +33,20 @@ const CustomNavbar = () => (
         <Collapse  navbar>
             <Nav className="ml-auto" navbar>
                 <NavItem>
-                    <Link className="nav-link" to="/overview/">Overview</Link>
+                    <Link className={'nav-link '+ navbarColorClass } to="/overview/">Overview</Link>
                 </NavItem>
                 <NavItem>
-                    <Link className="nav-link" to="/docs/">Docs</Link>
+                    <Link className={'nav-link '+ navbarColorClass } to="/technical-overview/">Technical</Link>
                 </NavItem>
                 <NavItem>
-                    <Link className="nav-link" to="/tools/">Tools</Link>
+                    <Link className={'nav-link '+ navbarColorClass } to="/docs/">Docs</Link>
+                </NavItem>
+                <NavItem>
+                    <Link className={'nav-link '+ navbarColorClass } to="/tools/">Tools</Link>
                 </NavItem>
             </Nav>
         </Collapse>
     </Navbar>
-)
+    )
+}
 export default CustomNavbar

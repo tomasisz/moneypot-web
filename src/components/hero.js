@@ -1,16 +1,29 @@
 import React from 'react'
 
-const Hero = ({ children }) => (
+const Hero = () => (
     <div
         style={{
-            background: 'linear-gradient(to bottom, #487eb7, #3c689e, #315286, #253d6d, #192a56)',
-            color: '#fff',
+            background: 'linear-gradient(rgb(15, 98, 189) 24%, rgb(10, 64, 122) 168%)',
+            backgroundImage: 'linear-gradient(rgb(15, 98, 189) 24%, rgb(10, 64, 122) 168%)',
+            borderBottomLeftRadius: '50% 8%',
+            borderBottomRightRadius: '50% 8%',
             minHeight: '90vh',
-            margin: '0px -1rem',
-            padding: '2rem'
+            width: '120%',
+            margin: '-10% -10% 0% -10%',
         }}
     >
-        {children}
+        <div
+            style={{
+                color: '#fff',
+                margin: '0% 15%',
+                padding: '20% 2rem',
+                textAlign: 'center',
+            }}
+        >
+            <h1>Hookedin</h1>
+
+            <p>Your bitcoin scaling solution</p>
+        </div>
     </div>
 )
 
