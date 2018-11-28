@@ -18,11 +18,10 @@ const Hero = () => (
                 margin: '0% 15%',
                 padding: '20% 2rem',
                 textAlign: 'center',
+                fontSize: '3rem'
             }}
         >
-            <h1>Hookedin</h1>
-
-            <p>Your bitcoin scaling solution</p>
+            <p>The sidechain that makes bitcoin payments practical</p>
         </div>
     </div>
 )

@@ -10,14 +10,14 @@
 
 // Reassign color vars to semantic color scheme
 $theme-colors: (
-        primary: $theme-light,
-        secondary: $theme-dark,
+        primary: $theme-color,
+        secondary: $theme-accent,
         success: $green,
         info: $cyan,
         warning: $yellow,
         danger: $red,
         light: $gray-100,
-        dark: $theme-dark,
+        dark: $text-color,
 ) !default;
 
 // Options
@@ -47,7 +47,7 @@ $container-max-widths: (
 // Settings for the `<body>` element.
 
 $body-bg: $white !default;
-$body-color: $blue-nights !default;
+$body-color: $text-color !default;
 $inverse-bg: $gray-900 !default;
 $inverse-color: $gray-600 !default;
 
@@ -78,7 +78,11 @@ $link-hover-decoration: none !default;
 }
 
 .custom-navbar-homepage {
-  color: rgba($royal-yellow, 1);
+  color: rgba($theme-accent, 1);
+}
+
+.custom-navbar-homepage.custom-navbar-brand{
+  font-size: 1.8rem;
 }
 
 .custom-navbar-homepage:hover, .custom-navbar-homepage:active {
@@ -86,11 +90,11 @@ $link-hover-decoration: none !default;
 }
 
 .custom-navbar-not-homepage {
-  color: rgba($royal-blue, 1);
+  color: rgba($theme-color, 1);
 }
 
 .custom-navbar-not-homepage:hover, .custom-navbar-not-homepage:active {
-  color: darken($royal-blue, 10%);
+  color: darken($theme-color, 10%);
 }
 
 //Cards
@@ -330,7 +334,7 @@ h1 {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-  color: inherit;
+  color: $theme-color;
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
   text-rendering: optimizeLegibility;
@@ -361,7 +365,7 @@ h3 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  //margin-bottom: 1.45rem;
   color: inherit;
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
@@ -722,11 +726,32 @@ pre tt:after {
 
 // Footer
 footer {
-  background: $theme-dark;
+  background: $theme-color;
 }
 footer a {
   color: $white;
 }
 footer a:active, footer a:hover {
-  color: $royal-yellow;
+  color: $theme-accent;
+}
+
+// Anchor Link to section
+
+.anchor-section {
+  font-weight: 900;
+  color: $gray-300;
+  transition: color .16s linear;
+}
+
+.anchor-section:hover {
+  opacity: 1;
+  color: $theme-color;
+}
+
+.anchor-section:focus {
+  opacity: 1;
+}
+
+hr {
+  margin-top: -1rem;
 }

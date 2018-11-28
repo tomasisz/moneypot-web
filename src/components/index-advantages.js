@@ -25,7 +25,7 @@ const IndexAdvantages = () => (
             <CardBody>
                 <h3 style={{ marginBottom: '1rem'}}>Protects your privacy</h3>
                 <CardText>Some text</CardText>
-                <Button>Learn More</Button>
+                <Link to="/privacy">Learn More</Link>
             </CardBody>
         </Card>
         <Card>

@@ -4,15 +4,13 @@ import SectionDiv from '../components/section-div'
 
 
 
-const NotFoundPage = () => (
+const LowerFees = () => (
     <Layout>
         <SectionDiv>
-            <h1>404: Not found</h1>
+            <h1>How does hookedin manage to lower the bitcoin transaction fees for you?</h1>
         </SectionDiv>
     </Layout>
 )
 
-export default NotFoundPage
-
-
+export default LowerFees
 
