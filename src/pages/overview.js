@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout'
 import SectionDiv from '../components/section-div'
+import { Link } from 'gatsby'
 import { Row, Col } from 'reactstrap';
 
 const Overview = () => (
@@ -22,21 +23,21 @@ const Overview = () => (
                     <p>Furthermore, hookedin offers the following relevant advantages for its users:</p>
                     <ul>
                         <li>
-                            <b>Lower fees.</b> Benefit from our economy of scale and pay less than if you were processing the payments yourself.
-                            If you are a business, We do all the consolidation, resulting in a transparent process for you. <a href="/lower-fees">Learn More.</a>
+                            <b>Lower fees. </b> Benefit from our economy of scale and pay less than if you were processing the payments yourself.
+                            If you are a business, We do all the consolidation, resulting in a transparent process for you. <Link to="/lower-fees">Learn More.</Link>
                         </li>
                         <li>
-                            <b>Privacy.</b>
+                            <b>Privacy. </b>
                             We know how important it is privacy for you and your customers. We offer untrackable transactions to keep the user's privacy protected.
                             Here is an example of how user's transactions are exposed publicly in the internet:
-                            <a href="/privacy"> Learn More.</a>
+                            <Link to="/privacy"> Learn More.</Link>
                         </li>
                         <li>
-                            <b>White Label.</b>
+                            <b>White Label. </b>
                             You have complete control of the whole process as it best suits your business and we don't push any branding of our own.
                         </li>
                         <li>
-                            <b>Offline.</b>
+                            <b>Offline. </b>
                         </li>
 
                     </ul>
@@ -66,7 +67,7 @@ const Overview = () => (
                     </h2>
                     <hr />
                     <p>
-                        Check out our complete <a href="/integration-guide">Integration Guide</a>
+                        Check out our complete <Link to="/integration-guide">Integration Guide</Link>
                     </p>
                 </Col>
             </Row>
