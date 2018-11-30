@@ -52,11 +52,22 @@ export default class Repl extends React.Component {
 
 
   render() {
-    return <div>
-      <textarea style={ { display: 'block' }}
-                value={this.state.value} onChange={ this.onChange } cols={80} rows={3} />
-      {  this.info() }<button onClick={ this.onRun }>Run!</button>
+    return (
+        <div className="text-right">
+          <textarea className="code-area"
+                    value={this.state.value}
+                    onChange={ this.onChange }
+                    cols={80} rows={3} />
+            <pre className="code-result">
+            {  this.info() }
+            </pre>
+          <button
+              className="btn btn-info"
+              style={{ margin: '0px 15px 15px'}}
+              onClick={ this.onRun}
+          >Run</button>
     </div>
+    )
   }
 }
 

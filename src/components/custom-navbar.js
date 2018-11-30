@@ -39,10 +39,10 @@ const CustomNavbar = (props) => {
                     <Link className={'nav-link '+ navbarColorClass } to="/wallet/">Wallet</Link>
                 </NavItem>
                 <NavItem>
-                    <Link className={'nav-link '+ navbarColorClass } to="/docs/">Docs</Link>
+                    <Link className={'nav-link '+ navbarColorClass } to="/fees/">Fees</Link>
                 </NavItem>
                 <NavItem>
-                    <Link className={'nav-link '+ navbarColorClass } to="/tools/">Tools</Link>
+                    <Link className={'nav-link '+ navbarColorClass } to="/docs/">Docs</Link>
                 </NavItem>
             </Nav>
         </Collapse>

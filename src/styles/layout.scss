@@ -7,6 +7,7 @@
 // Color system
 //
 @import './colors.scss';
+@import './code-area.scss';
 
 // Reassign color vars to semantic color scheme
 $theme-colors: (
@@ -100,6 +101,10 @@ $link-hover-decoration: none !default;
 //Cards
 $card-border-color: transparent !default;
 
+//List-Group
+$list-group-border-color: transparent;
+$list-group-item-padding-y:  .5rem !default;
+
   // Import bootstrap
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 
@@ -113,6 +118,10 @@ html {
 }
 body {
   margin: 0;
+}
+
+section {
+  margin-bottom: 20px;
 }
 article,
 aside,
@@ -754,4 +763,28 @@ footer a:active, footer a:hover {
 
 hr {
   margin-top: -1rem;
+}
+
+// Docs
+
+.sidenav {
+  height: 100%;
+  width: 20vw;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  color: $white;
+  overflow-x: hidden;
+  margin-top: 60px;
+  padding-top: 20px;
+}
+
+.sidenav-active {
+  color: $theme-color;
+}
+
+.docs-content {
+  margin-left: 20vw;
 }

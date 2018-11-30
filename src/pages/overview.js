@@ -31,11 +31,19 @@ const Overview = () => (
                             Here is an example of how user's transactions are exposed publicly in the internet:
                             <a href="/privacy"> Learn More.</a>
                         </li>
+                        <li>
+                            <b>White Label.</b>
+                            You have complete control of the whole process as it best suits your business and we don't push any branding of our own.
+                        </li>
+                        <li>
+                            <b>Offline.</b>
+                        </li>
 
                     </ul>
                     <h2 id="how-does-it-work">How does hookedin work?
                         <a href="#how-does-it-work" className="anchor-section float-right">#</a>
                     </h2>
+                    <hr />
                     <h3>Step 1. Generate hookin address</h3>
                     <p>
                         This is a bitcoin address (created by deriving the Custodian Funding Public Key with your Public Key).
@@ -52,6 +60,14 @@ const Overview = () => (
                         All transfers and uses are <b>instant</b>, <b>cheap</b> and totally <b>private</b>!
                     </p>
                     <h3>Step 4. Cash your coins back into btc</h3>
+                    <br/>
+                    <h2 id="integration-guide">How can I integrate Hookedin in my business?
+                        <a href="#integration-guide" className="anchor-section float-right">#</a>
+                    </h2>
+                    <hr />
+                    <p>
+                        Check out our complete <a href="/integration-guide">Integration Guide</a>
+                    </p>
                 </Col>
             </Row>
         </SectionDiv>
