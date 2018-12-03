@@ -8,8 +8,8 @@ import Repl from '../components/repl'
 const Docs = () => (
     <Layout>
         <SectionDiv>
-            <Row>
-                <Col className="sidenav">
+            <Row className="this-row">
+                <Col sm='3' className="sidenav">
                     <Scrollspy
                         className="list-group"
                         componentTag="div"
@@ -19,7 +19,7 @@ const Docs = () => (
                         <a className="list-group-item list-group-item-action" href="#section-3">Section 3</a>
                     </Scrollspy>
                 </Col>
-                <Col className="docs-content">
+                <Col sm='9'>
                     <h1>Docs</h1>
                     <section id="create-new-priv-key">
                         <h2><a href="#create-new-priv-key">Create new private key</a>

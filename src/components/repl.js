@@ -53,7 +53,7 @@ export default class Repl extends React.Component {
 
   render() {
     return (
-        <div className="text-right">
+        <div>
           <textarea className="code-area"
                     value={this.state.value}
                     onChange={ this.onChange }
@@ -61,11 +61,13 @@ export default class Repl extends React.Component {
             <pre className="code-result">
             {  this.info() }
             </pre>
-          <button
-              className="btn btn-info"
-              style={{ margin: '0px 15px 15px'}}
-              onClick={ this.onRun}
-          >Run</button>
+            <div className="text-right">
+              <button
+                  className="btn btn-info"
+                  style={{ margin: '0px 15px 15px'}}
+                  onClick={ this.onRun}
+              >Run</button>
+            </div>
     </div>
     )
   }

@@ -769,23 +769,12 @@ hr {
 // Docs
 
 .sidenav {
-  height: 100%;
-  width: 20vw;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  color: $white;
   overflow-x: hidden;
-  margin-top: 60px;
-  padding-top: 20px;
+  height: 100%;
+  position: sticky;
+  top: 2vh;
 }
 
 .sidenav-active {
   color: $theme-color;
-}
-
-.docs-content {
-  margin-left: 20vw;
 }
