@@ -119,6 +119,7 @@ html {
 }
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 section {
@@ -778,3 +779,6 @@ hr {
 .sidenav-active {
   color: $theme-color;
 }
+
+
+//Test
