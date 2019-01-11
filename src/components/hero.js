@@ -1,24 +1,37 @@
 import React from 'react'
+import { Button, Col, Row } from "reactstrap";
+import tile from '../images/tile.png'
+import pirateImg from '../images/pirate.svg'
 
 const Hero = () => (
     <div
         style={{
-            background: 'linear-gradient(rgb(15, 98, 189) 24%, rgb(10, 64, 122) 168%)',
-            backgroundImage: 'linear-gradient(rgb(15, 98, 189) 24%, rgb(10, 64, 122) 168%)',
-            minHeight: '90vh',
+            backgroundImage: `url(${tile})`,
+            minHeight: '80vh',
             margin: '-5rem -1rem 0',
         }}
     >
         <div
             style={{
                 color: '#fff',
-                margin: '0% 15%',
-                padding: '20% 2rem',
-                textAlign: 'center',
-                fontSize: '3rem'
+                margin: '0% 8%',
+                padding: '15% 2rem',
+                textAlign: 'center'
             }}
         >
-            <p>The sidechain that makes bitcoin payments practical</p>
+            <Row>
+                <Col sm="8">
+                    <p style={{ fontSize: '3rem', fontWeight: 'bold'}}>The managed bitcoin services</p>
+                    <p style={{ fontSize: '2rem'}}>Get delighted with unprecedented benefits with an incredible ease of use</p>
+                    <Row>
+                        <Col><Button size="lg" color="secondary">Learn More</Button></Col>
+                        <Col><Button size="lg" color="secondary">Download</Button></Col>
+                    </Row>
+                </Col>
+                <Col xs="12" sm="4" md="4" lg="3">
+                    <img src={pirateImg}/>
+                </Col>
+            </Row>
         </div>
     </div>
 )

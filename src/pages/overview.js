@@ -10,7 +10,7 @@ const Overview = () => (
             <Row>
                 <Col sm="12" md={{ size: 10, offset: 1 }}>
                     <h1>Overview</h1>
-                    <h2 id="what-is-hookedin">What is hookedink?
+                    <h2 id="what-is-hookedin">What is hookedin?
                         <a href="#what-is-hookedin" className="anchor-section float-right">#</a>
                     </h2>
                     <hr />

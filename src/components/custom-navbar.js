@@ -7,7 +7,7 @@ import {
     Nav,
     NavItem
 } from "reactstrap";
-import logo from '../images/logo.png'
+import logo from '../images/logo.svg'
 
 
 const CustomNavbar = (props) => {

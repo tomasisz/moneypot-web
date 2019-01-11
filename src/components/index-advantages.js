@@ -33,7 +33,7 @@ const IndexAdvantages = () => (
             <CardBody>
                 <h3 style={{ marginBottom: '1rem'}}>Very low fees!</h3>
                 <CardText>Some text</CardText>
-                <Button>Learn More</Button>
+                <Link to="/lower-fees">Learn More</Link>
             </CardBody>
         </Card>
     </CardDeck>
