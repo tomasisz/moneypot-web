@@ -29,7 +29,7 @@ const Hero = () => (
                     </Row>
                 </Col>
                 <Col xs="12" sm="4" md="4" lg="3">
-                    <img src={pirateImg}/>
+                    <img src={pirateImg} alt="pirate illustration"/>
                 </Col>
             </Row>
         </div>

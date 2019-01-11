@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import {
     CardDeck,
     Card, CardImg, CardText,
-    CardBody, Button
+    CardBody
 } from "reactstrap";
 import fastImg from '../images/fast.svg'
 import cheapImg from '../images/cheap.svg'
