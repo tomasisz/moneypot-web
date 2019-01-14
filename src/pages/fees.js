@@ -10,6 +10,16 @@ const Fees = () => (
     <Layout>
         <SectionDiv>
             <h1>Fees</h1>
+            <h2>Executive Notes</h2>
+            <p>One of hookedin's competitive advantages is <span style={{ fontWeight: 'bold'}}>the lowest fees in the market</span>. We are not only using several advanced methods to keep the blockchain fees low,
+                as explained in <Link to="/lower-fees">this document</Link>, but we are also operating at cost, keeping our commissions minimal.</p>
+            <p>
+                Since we are not collecting profit from these fees, our business model is based in locking in the bitcoin deposited in the system and not withdrawn for
+                12-24 months. You can read more about this in the <Link to="/faq">FAQ</Link>.
+            </p>
+            <p>
+                As long as you collect your bitcoin in less than 12 months, rest assured that you are trading bitcoin the best way.
+            </p>
             <h2>Withdrawal</h2>
             <p>These fees includes both bitcoin blockchain fees and our commission. The list is updated dynamically, according to current market fees.</p>
             <Row>

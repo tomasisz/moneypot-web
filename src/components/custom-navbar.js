@@ -27,7 +27,7 @@ const CustomNavbar = (props) => {
         <img
             src={logo}
             alt="Hookedin Logo"
-            style={{ maxHeight: '40px', margin: 0}}
+            style={{ maxHeight: '45px', margin: 0}}
         />
         <NavbarToggler />
         <Collapse  navbar>
