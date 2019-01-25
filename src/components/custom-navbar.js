@@ -7,7 +7,6 @@ import {
     Nav,
     NavItem
 } from "reactstrap";
-import logo from '../images/logo.svg'
 
 
 const CustomNavbar = (props) => {
@@ -24,11 +23,6 @@ const CustomNavbar = (props) => {
         >
             hookedin
         </Link>
-        <img
-            src={logo}
-            alt="Hookedin Logo"
-            style={{ maxHeight: '45px', margin: 0}}
-        />
         <NavbarToggler />
         <Collapse  navbar>
             <Nav className="ml-auto" navbar>

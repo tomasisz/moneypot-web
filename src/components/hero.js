@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Col, Row } from "reactstrap";
 import tile from '../images/tile.png'
-import pirateImg from '../images/pirate.svg'
+import pirateImg from '../images/logo.svg'
 
 const Hero = () => (
     <div
@@ -22,7 +22,7 @@ const Hero = () => (
             <Row>
                 <Col sm="8">
                     <p style={{ fontSize: '3rem', fontWeight: 'bold'}}>The managed bitcoin services</p>
-                    <p style={{ fontSize: '2rem'}}>Get delighted with unprecedented benefits with an incredible ease of use</p>
+                    <p style={{ fontSize: '2rem'}}>Unprecedented benefits with an incredible ease of use</p>
                     <Row>
                         <Col><Button size="lg" color="secondary">Learn More</Button></Col>
                         <Col><Button size="lg" color="secondary">Download</Button></Col>
