@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import SectionDiv from '../components/section-div'
 import { Link } from 'gatsby'
 import { Row, Col } from 'reactstrap';
+import * as hi from "hookedin-lib";
 
 const Overview = () => (
     <Layout>
@@ -72,7 +73,38 @@ const Overview = () => (
                 </Col>
             </Row>
         </SectionDiv>
+        <SectionDiv>
+            <Row>
+                <Col sm="12" md={{ size: 10, offset: 1 }}>
+                    <h1>Coins</h1>
+                    <p>
+                        There are exactly 31 different coins in hookedin, each having a different <strong>magnitude</strong>
+                    </p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Magnitude</th>
+                                <th>Bitcoin Value</th>
+                                <th>Signing Key</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { coinMagnitudes().map( (magnitude) => (
+
+                              <tr>
+                                  <th>{ magnitude }</th>
+                                  <td>{ (2**magnitude / 1e8).toFixed(8) } btc</td>
+                                  <td><code>{ hi.Params.blindingCoinPublicKeys[magnitude].toBech() }</code></td>
+                              </tr>
+                            )) }
+                        </tbody>
+                    </table>
+                </Col>
+            </Row>
+        </SectionDiv>
     </Layout>
 )
+
+const coinMagnitudes = () => Array(31).fill(0).map((_, magnitude) => magnitude);
 
 export default Overview
