@@ -78,7 +78,7 @@ const Overview = () => (
                 <Col sm="12" md={{ size: 10, offset: 1 }}>
                     <h1>Coins</h1>
                     <p>
-                        There are exactly 31 different coins in hookedin, each having a different <strong>magnitude</strong>
+                        There are exactly { hi.Params.blindingCoinPublicKeys.length } different coins in hookedin, each having a different <strong>magnitude</strong>
                     </p>
                     <table>
                         <thead>
@@ -89,12 +89,12 @@ const Overview = () => (
                             </tr>
                         </thead>
                         <tbody>
-                            { coinMagnitudes().map( (magnitude) => (
+                            { hi.Params.blindingCoinPublicKeys.map( (pub, magnitude) => (
 
                               <tr>
                                   <th>{ magnitude }</th>
                                   <td>{ (2**magnitude / 1e8).toFixed(8) } btc</td>
-                                  <td><code>{ hi.Params.blindingCoinPublicKeys[magnitude].toBech() }</code></td>
+                                  <td><code>{ pub.toBech() }</code></td>
                               </tr>
                             )) }
                         </tbody>
@@ -105,6 +105,5 @@ const Overview = () => (
     </Layout>
 )
 
-const coinMagnitudes = () => Array(31).fill(0).map((_, magnitude) => magnitude);
 
 export default Overview
