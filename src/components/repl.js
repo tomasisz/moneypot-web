@@ -1,5 +1,5 @@
 import React from 'react'
-import hiImport from 'hookedin-lib'
+import * as hiImport from 'hookedin-lib'
 
 
 export default class Repl extends React.Component {
