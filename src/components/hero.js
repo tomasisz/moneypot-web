@@ -27,7 +27,7 @@ const Hero = () => (
 
                     <Row>
                         <Col><Button size="lg" color="secondary">Learn More</Button></Col>
-                        <Col><Button size="lg" color="secondary">Download</Button></Col>
+                        <Col><Button size="lg" href="https://wallet.hookedin.com/">Go to Wallet</Button></Col>
                     </Row>
                 </Col>
                 <Col xs="12" sm="4" md="4" lg="3">

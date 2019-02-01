@@ -7,15 +7,23 @@ import {
     Nav,
     NavItem
 } from "reactstrap";
-
+import blueLogo from '../images/hook.svg'
+import yellowLogo from '../images/hook-yellow.svg'
 
 const CustomNavbar = (props) => {
     let {isHomepage} = props
 
     let navbarColorClass = isHomepage ? 'custom-navbar-homepage' : 'custom-navbar-not-homepage';
+    let logoSelection = isHomepage ? yellowLogo : blueLogo ;
+    let logoStyle = isHomepage ? 'logo-homepage' : 'logo-not-homepage';
 
     return(
     <Navbar expand="md">
+        <img
+            src={logoSelection}
+            alt="Hookedin Logo"
+            className={ logoStyle }
+        />
         <Link
             className={'custom-navbar-brand '+ navbarColorClass }
             to="/"
@@ -23,6 +31,7 @@ const CustomNavbar = (props) => {
         >
             hookedin
         </Link>
+
         <NavbarToggler />
         <Collapse  navbar>
             <Nav className="ml-auto" navbar>
@@ -30,7 +39,7 @@ const CustomNavbar = (props) => {
                     <Link className={'nav-link '+ navbarColorClass } to="/overview/">Overview</Link>
                 </NavItem>
                 <NavItem>
-                    <Link className={'nav-link '+ navbarColorClass } to="/wallet/">Wallet</Link>
+                    <a className={'nav-link '+ navbarColorClass } href="https://wallet.hookedin.com/">Wallet</a>
                 </NavItem>
                 <NavItem>
                     <Link className={'nav-link '+ navbarColorClass } to="/fees/">Fees</Link>

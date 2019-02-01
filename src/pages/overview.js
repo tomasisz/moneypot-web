@@ -91,7 +91,8 @@ const Overview = () => (
                         <tbody>
                             { hi.Params.blindingCoinPublicKeys.map( (pub, magnitude) => (
 
-                              <tr>
+
+                              <tr key={ magnitude }>
                                   <th>{ magnitude }</th>
                                   <td>{ (2**magnitude / 1e8).toFixed(8) } btc</td>
                                   <td><code>{ pub.toBech() }</code></td>

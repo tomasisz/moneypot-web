@@ -99,6 +99,17 @@ $link-hover-decoration: none !default;
   color: darken($theme-color, 10%);
 }
 
+.logo-homepage {
+  max-height: 40px;
+  margin: 0 0.3rem 0 0;
+}
+
+.logo-not-homepage {
+  max-height: 35px;
+  margin: 0 0.3rem 0 0;
+}
+
+
 //Cards
 $card-border-color: transparent !default;
 
