@@ -22,7 +22,7 @@ const Hero = () => (
             <Row>
                 <Col sm="8">
                     <p style={{ fontSize: '3rem', fontWeight: 'bold'}}>Bitcoin Layer 2.0</p>
-                    <p style={{ fontSize: '2rem'}}>The managed bitcoin service</p>
+                    <p style={{ fontSize: '2rem'}}>Wield bitcoin like never before</p>
                     <p style={{ fontSize: '2rem'}}>Making payments fast, cheap and super private!</p>
 
                     <Row>
