@@ -7,23 +7,16 @@ import {
     Nav,
     NavItem
 } from "reactstrap";
-import blueLogo from '../images/hook.svg'
-import yellowLogo from '../images/hook-yellow.svg'
+
 
 const CustomNavbar = (props) => {
     let {isHomepage} = props
 
     let navbarColorClass = isHomepage ? 'custom-navbar-homepage' : 'custom-navbar-not-homepage';
-    let logoSelection = isHomepage ? yellowLogo : blueLogo ;
-    let logoStyle = isHomepage ? 'logo-homepage' : 'logo-not-homepage';
+
 
     return(
     <Navbar expand="md">
-        <img
-            src={logoSelection}
-            alt="Hookedin Logo"
-            className={ logoStyle }
-        />
         <Link
             className={'custom-navbar-brand '+ navbarColorClass }
             to="/"

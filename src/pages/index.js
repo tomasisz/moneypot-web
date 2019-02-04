@@ -13,17 +13,24 @@ const IndexPage = () => (
   <Layout isHomepage={true}>
       <Hero />
       <SectionDiv>
-          <h2>Trade with bitcoin like never before</h2>
+          <h2>Wield bitcoin like never before</h2>
+          <p>hookedin allows you to use bitcoin as a consumer or to accept bitcoin payments for your business, offering in both cases attractive advantages</p>
           <Row>
-              <Col>Send and Receive</Col>
-              <Col>Store</Col>
-              <Col>E-commerce</Col>
+              <Col>
+                  <h3>Send and Receive</h3>
+                  <p>Trade with other individuals within hookedin or externally. Fast and with very low fees.</p>
+              </Col>
+              <Col>
+                  <h3>Store</h3>
+                  <p>Use hookedin wallet to keep your bitcoin safely for later use</p>
+              </Col>
+              <Col>
+                  <h3>E-commerce</h3>
+                  <p></p>
+              </Col>
           </Row>
       </SectionDiv>
-      <SectionDiv>
-          <h2>hookedin is awesome</h2>
           <IndexAdvantages />
-      </SectionDiv>
       <SectionDiv>
           <h2>Are you thinking of the possible drawbacks?</h2>
           <Row>
