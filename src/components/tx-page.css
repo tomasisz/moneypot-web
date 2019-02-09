@@ -1,0 +1,33 @@
+.tx-stats-table > div {
+    height: 52px;
+    border-top: 1px solid #dee2e6;
+    font-size: 16px;
+}
+
+.tx-stats-table > div {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.tx-stats-table > div > * {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.tx-stats-table > div:last-child {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.tx-stats-table > div > div:nth-child(1) {
+    width: 200px;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #78838e;
+    width: auto;
+}
+
+.tx-stats-table > div > div:nth-child(2) {
+    text-align: right;
+    word-break: break-word;
+}

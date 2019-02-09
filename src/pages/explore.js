@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import SectionDiv from '../components/section-div'
 import { Router, navigate } from "@reach/router"
-
+import TxPage from '../components/tx-page'
 
 
 const App = () => (
@@ -12,7 +12,7 @@ const App = () => (
                 <QueryTx path="explore/" />
                 <QueryTx path="explore/tbtc/" />
                 <QueryTx path="explore/tbtc/tx/" />
-                <Tx path="explore/tbtc/tx/:page" />
+                <TxPage path="explore/tbtc/tx/:page" />
             </Router>
         </SectionDiv>
     </Layout>
@@ -56,12 +56,6 @@ class QueryTx extends React.Component {
     }
 }
 
-
-const Tx = props => (
-    <div>
-        <h1>Explore: {props.page}</h1>
-    </div>
-);
 
 export default App
 
