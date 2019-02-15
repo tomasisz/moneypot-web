@@ -6,7 +6,7 @@ import { Col, Row } from 'reactstrap'
 
 import SectionDiv from "../components/section-div";
 import IndexAdvantages from "../components/index-advantages"
-
+import IndexSolidBgSection from '../components/index-solid-bg-section'
 
 
 const IndexPage = () => (
@@ -26,11 +26,19 @@ const IndexPage = () => (
               </Col>
               <Col>
                   <h3>E-commerce</h3>
-                  <p></p>
+                  <p>hookedin platform will allow you to process bitcoin payments from your customers, safely, cost effectively and hands free</p>
               </Col>
           </Row>
       </SectionDiv>
-          <IndexAdvantages />
+      <IndexAdvantages />
+      <IndexSolidBgSection>
+          <h2>hookedin is secure</h2>
+          <p style={{ textAlign: 'center' }}
+             className="lead"
+          >
+              All transactions are secured by <b>blinded schnorr signatures</b>.
+          </p>
+      </IndexSolidBgSection>
       <SectionDiv>
           <h2>Are you thinking of the possible drawbacks?</h2>
           <Row>
@@ -53,6 +61,23 @@ const IndexPage = () => (
 
           </Row>
       </SectionDiv>
+      <IndexSolidBgSection>
+          <h2 style={{ textAlign: 'center' }}>Are you ready to start?</h2>
+          <p style={{ textAlign: 'center' }}
+             className="lead"
+          >
+              No registration required.
+          </p>
+          <Row>
+              <Col xs={{ size: 4, offset: 4 }}>
+          <Link
+              className="btn-lg btn-secondary btn-block"
+              to="/overview/"
+              style={{ textAlign: 'center'}}
+          >Call to Action</Link>
+              </Col>
+          </Row>
+      </IndexSolidBgSection>
   </Layout>
 )
 

@@ -20,7 +20,8 @@ class TxPage extends React.Component {
     }
 
     componentDidMount(props) {
-        fetch("https://blockstream.info/testnet/api/tx/11440bb2493d3f3ce5c4932bd79dd89c408b9dd7b5affdb0ec7b5434e0eb8ae8")
+        console.log('a transaction is: 11440bb2493d3f3ce5c4932bd79dd89c408b9dd7b5affdb0ec7b5434e0eb8ae8');
+        fetch("https://blockstream.info/testnet/api/tx/"+this.props.page)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -46,6 +47,8 @@ class TxPage extends React.Component {
                         isLoaded: true,
                         error
                     });
+                    console.log('Error: ', error.message)
+
                 }
             )
 
@@ -71,7 +74,7 @@ class TxPage extends React.Component {
                             </div>
                             <div>
                                 <div>Included in Block</div>
-                                <div><a href="">{ blockHash }</a></div>
+                                <div><a href="/">{ blockHash }</a></div>
                             </div>
                             <div>
                                 <div>Size (bytes)</div>
