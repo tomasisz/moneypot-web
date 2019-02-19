@@ -1,1 +1,2 @@
 /explore/*  /explore/   200
+/api/dev/*  https://cptnhk.herokuapp.com/:splat  200
