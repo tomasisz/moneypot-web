@@ -31,3 +31,40 @@
     text-align: right;
     word-break: break-word;
 }
+
+/* Inputs and Outputs table */
+
+.tx-input-and-output-table > div {
+    height: 52px;
+    border-top: 1px solid #dee2e6;
+    font-size: 16px;
+}
+.tx-input-and-output-table > div {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.tx-input-and-output-table > div > * {
+    display: table-cell;
+}
+
+.tx-input-and-output-table > div:last-child {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.tx-input-and-output-table > div > div:nth-child(1) {
+    letter-spacing: 0.1rem;
+    color: #78838e;
+    width: 10%;
+}
+
+.tx-input-and-output-table > div > div:nth-child(2) {
+    word-break: break-word;
+}
+
+.tx-input-and-output-table > div > div:nth-child(3) {
+    text-align: right;
+    word-break: break-word;
+    width: 30%;
+}
