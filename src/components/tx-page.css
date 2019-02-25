@@ -63,8 +63,4 @@
     word-break: break-word;
 }
 
-.tx-input-and-output-table > div > div:nth-child(3) {
-    text-align: right;
-    word-break: break-word;
-    width: 30%;
-}
+
