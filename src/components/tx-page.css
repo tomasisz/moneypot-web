@@ -20,11 +20,9 @@
 }
 
 .tx-stats-table > div > div:nth-child(1) {
-    width: 200px;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     color: #78838e;
-    width: auto;
 }
 
 .tx-stats-table > div > div:nth-child(2) {
