@@ -1,5 +1,5 @@
 import React from 'react'
-import SectionDiv from '../components/section-div'
+import SectionDiv from './section-div'
 import './tx-page.css'
 import { Row, Col, Button, Badge } from 'reactstrap';
 import { Link } from 'gatsby'
@@ -9,23 +9,83 @@ import { faChevronRight, faLink } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faChevronRight, faLink)
 
-class TxPage extends React.Component {
-    constructor(props) {
+
+interface TxPageState {
+    outspendsDetailsOpen: boolean;
+    error: any;
+    txResponse?: TxResponse;
+    outspendsResponse?: OutspendsResponse;
+}
+
+interface Status {
+    block_height: number;
+    block_hash: string;
+    block_time: number;
+    confirmed: boolean;
+}
+
+interface Vout {
+    scriptpubkey: string;
+    scriptpubkey_address: string;
+    scriptpubkey_asm: string;
+    scriptpubkey_type: string;
+    value: number;
+}
+
+interface TxResponse {
+    status: Status;
+    size: number;
+    weight: number;
+    fee: number;
+    version: number;
+    locktime: number;
+    vin: {
+        is_coinbase: boolean;
+        prevout: {
+            scriptpubkey: string;
+            scriptpubkey_address: string;
+            scriptpubkey_asm: string;
+            scriptpubkey_type: string;
+            value: number;
+
+        };
+        scriptsig: string;
+        scriptsig_asm: string;
+        sequence: number;
+        txid: string;
+        vout: number;
+        witness: any;
+
+    }[];
+    vout: Vout[];
+
+}
+
+type OutspendsResponse = (OutspendsResponseUnspentItem | OutspendsResponseSpentItem )[];
+
+interface OutspendsResponseUnspentItem {
+    spent: false;
+    status: null;
+    txid: null;
+    vin: null;
+}
+
+interface OutspendsResponseSpentItem {
+    spent: true;
+    status: Status;
+    txid: string;
+    vin: number;
+}
+
+
+
+
+class TxPage extends React.Component<any,TxPageState> {
+    constructor(props: any) {
         super(props);
         this.state = {
             outspendsDetailsOpen: false,
             error: null,
-            isLoaded: false,
-            height: 0,
-            blockHash: '',
-            size: 0,
-            weight: 0,
-            fee: 0,
-            version: 0,
-            locktime: 0,
-            vin: [],
-            vout: [],
-            outspends: null
 
         };
         this.toggle = this.toggle.bind(this);
@@ -35,24 +95,14 @@ class TxPage extends React.Component {
         this.setState({outspendsDetailsOpen: !this.state.outspendsDetailsOpen});
     }
 
-    getTransactionInfo(txid){
+    getTransactionInfo(txid: any){
         fetch("https://blockstream.info/testnet/api/tx/"+txid)
             .then(res => res.json())
             .then(
                 (result) => {
                     console.log('the api info is: ',result);
                     this.setState({
-                        isLoaded: true,
-                        height: result.status.block_height,
-                        blockHash: result.status.block_hash,
-                        size: result.size,
-                        weight: result.weight,
-                        fee: result.fee,
-                        version: result.version,
-                        locktime: result.locktime,
-                        vin: result.vin,
-                        vout: result.vout,
-
+                        txResponse: result
                     });
                 },
                 // Note: it's important to handle errors here
@@ -60,23 +110,22 @@ class TxPage extends React.Component {
                 // exceptions from actual bugs in components.
                 (error) => {
                     this.setState({
-                        isLoaded: true,
                         error
                     });
-                    console.log('Error: ', error.message)
+                    console.error('Error: ', error.message)
 
                 }
             )
     }
 
-    getOutspendsInfo(txid) {
+    getOutspendsInfo(txid: string) {
         fetch("https://blockstream.info/testnet/api/tx/"+txid+"/outspends")
             .then(res => res.json())
             .then(
                 (result) => {
                     console.log('the outspends api info is: ',result);
                     this.setState({
-                        outspends: result
+                        outspendsResponse: result
                     });
                     this.toggle();
                 },
@@ -84,7 +133,7 @@ class TxPage extends React.Component {
                     this.setState({
                         error
                     });
-                    console.log('Error while fetching outspends api: ', error.message)
+                    console.error('Error while fetching outspends api: ', error.message)
 
                 }
             )
@@ -96,7 +145,7 @@ class TxPage extends React.Component {
         this.getTransactionInfo(this.props.page)
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps: any) {
         if (this.props.page !== prevProps.page) {
             this.getTransactionInfo(this.props.page);
             if (this.state.outspendsDetailsOpen) {
@@ -108,8 +157,7 @@ class TxPage extends React.Component {
 
     }
 
-    displayOutput(i){
-        const output = this.state.vout[i];
+    displayOutput(output: Vout, i: number){
         return (
             <div key={i} id={ 'output-index-'+i}>
                 <div>#{i}</div>
@@ -122,14 +170,14 @@ class TxPage extends React.Component {
         );
     }
 
-    displaySpentStatus(i) {
-        if (!this.state.outspends) {
+    displaySpentStatus(i: number) {
+        if (this.state.outspendsResponse === undefined) {
             return <span>unknown</span>
         }
         if (!this.state.outspendsDetailsOpen) {
             return <span>unknown</span>
         }
-        const outspend = this.state.outspends[i];
+        const outspend = this.state.outspendsResponse[i];
         if (!outspend.spent) {
             return <Badge color="light">unspent</Badge>
         }
@@ -141,15 +189,18 @@ class TxPage extends React.Component {
 
     }
 
-
-    render(props) {
-        const { outspendsDetailsOpen, error, isLoaded, height, blockHash, size, weight, fee, version, locktime, vin, vout } = this.state;
+    render() {
+        const { outspendsDetailsOpen, error } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
+        }
+        if ( this.state.txResponse === undefined ) {
             return <div>Loading...</div>;
-        } else {
-            const vBytes = Math.ceil(weight / 4);
+        }
+
+        const { status, size, weight, fee, version, locktime, vin, vout } = this.state.txResponse;
+
+        const vBytes = Math.ceil(weight / 4);
             const feeRate = fee/ vBytes;
 
             return (
@@ -159,11 +210,11 @@ class TxPage extends React.Component {
                         <div className="tx-stats-table">
                             <div style={{ color: 'red' }}>
                                 <div>Block Height</div>
-                                <div>{ height }</div>
+                                <div>{ status.block_height }</div>
                             </div>
                             <div>
                                 <div>Included in Block</div>
-                                <div><a href="/">{ blockHash }</a></div>
+                                <div><a href="/">{ status.block_hash }</a></div>
                             </div>
                             <div>
                                 <div>Size (bytes)</div>
@@ -179,7 +230,7 @@ class TxPage extends React.Component {
                             </div>
                             <div>
                                 <div>Transaction fees</div>
-                                <div>{parseFloat(fee / 100000000).toFixed(8)} tBTC ({ feeRate.toFixed(0) } sat/vB)</div>
+                                <div>{(fee / 1e8).toFixed(8)} tBTC ({ feeRate.toFixed(0) } sat/vB)</div>
                             </div>
                             <div>
                                 <div>Version</div>
@@ -231,7 +282,7 @@ class TxPage extends React.Component {
                                 </Row>
                                 <div className="tx-input-and-output-table">
                                     {
-                                        vout.map((_, i) => this.displayOutput(i))
+                                        vout.map((vout: Vout, i: number) => this.displayOutput(vout,i))
                                     }
                                 </div>
                             </Col>
@@ -240,10 +291,10 @@ class TxPage extends React.Component {
                 </div>
             );
         }
-    }
+
 }
 
-function displayInput(item,i) {
+function displayInput(item: any, i: number) {
     if ( item.is_coinbase ) {
         return <div key={i}>coinbase</div>
     }
