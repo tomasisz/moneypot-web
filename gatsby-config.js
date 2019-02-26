@@ -15,6 +15,7 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+      `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -25,6 +26,7 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui'
       },
+
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
