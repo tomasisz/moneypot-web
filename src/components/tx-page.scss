@@ -1,3 +1,5 @@
+@import '../styles/colors.scss';
+
 .tx-stats-table > div {
     height: 52px;
     border-top: 1px solid #dee2e6;
@@ -32,15 +34,37 @@
 
 /* Inputs and Outputs table */
 
+.inputs-and-outputs-subtitle {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: $gray-600;
+}
+
+.tx-input-and-output-table {
+    background: #eff0f1;
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+}
+
 .tx-input-and-output-table > div {
+    background: #fff;
     height: 52px;
-    border-top: 1px solid #dee2e6;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
     font-size: 16px;
 }
 .tx-input-and-output-table > div {
     display: table;
     table-layout: fixed;
     width: 100%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tx-input-and-output-table > div:nth-child(1) {
+    margin-top: 0px;
 }
 
 .tx-input-and-output-table > div > * {
@@ -60,5 +84,4 @@
 .tx-input-and-output-table > div > div:nth-child(2) {
     word-break: break-word;
 }
-
 
