@@ -25,7 +25,6 @@
     "gatsby-source-filesystem": "^2.0.23",
     "gatsby-transformer-sharp": "^2.1.15",
     "hookedin-lib": "git+https://github.com/hookedin/hookedin-lib.git",
-    "i": "^0.3.6",
     "node-sass": "^4.11.0",
     "npm": "^6.8.0",
     "react": "^16.8.2",
