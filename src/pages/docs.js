@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import { Row, Col } from 'reactstrap';
 import SectionDiv from '../components/section-div'
 import Scrollspy from 'react-scrollspy'
-//import Repl from '../components/repl'
+import Repl from '../components/repl'
 
 const Docs = () => (
     <Layout>
@@ -26,7 +26,7 @@ const Docs = () => (
                             <a href="#create-new-priv-key" className="anchor-section float-right">#</a>
                         </h2>
                         <hr />
-                        {/*Repl>hi.PrivateKey.fromRand().toBech()</Repl>*/}
+                        <Repl>hi.PrivateKey.fromRand().toBech()</Repl>
                     </section>
                     <section id="section-2">
                         <h2><a href="#section-2">Section 2</a>

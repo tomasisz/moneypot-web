@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import SectionDiv from '../components/section-div'
 import { Link } from 'gatsby'
 import { Row, Col } from 'reactstrap';
-//import * as hi from "hookedin-lib";
+import * as hi from "hookedin-lib";
 
 const Overview = () => (
     <Layout>
@@ -73,7 +73,7 @@ const Overview = () => (
                 </Col>
             </Row>
         </SectionDiv>
-        {/*
+        
         <SectionDiv>
             <Row>
                 <Col sm="12" md={{ size: 10, offset: 1 }}>
@@ -104,7 +104,7 @@ const Overview = () => (
                 </Col>
             </Row>
         </SectionDiv>
-        */}
+        
     </Layout>
 )
 
