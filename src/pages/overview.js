@@ -4,20 +4,29 @@ import SectionDiv from '../components/section-div'
 import { Link } from 'gatsby'
 import { Row, Col } from 'reactstrap';
 import * as hi from "hookedin-lib";
+import Repl from '../components/repl'
 
 const Overview = () => (
     <Layout>
         <SectionDiv>
             <Row>
                 <Col sm="12" md={{ size: 10, offset: 1 }}>
-                    <h1>Overview</h1>
-                    <h2 id="what-is-hookedin">What is hookedin?
-                        <a href="#what-is-hookedin" className="anchor-section float-right">#</a>
+                    <h1>Technical Overview</h1>
+                    <p>
+                        This overview is written for a highly technical audience in mind, you do not need to understand this overview
+                        to actually use our service (which is designed explicitly for ease-of-use).
+                    </p>
+
+                    <h2 id="thousand-foot-overview">Thousand Foot Overview
+                        <a href="#thousand-foot-overview" className="anchor-section float-right">#</a>
                     </h2>
                     <hr />
                     <p>
-                        Hookedin is bitcoin payment platform enabled by a bitcoin-pegged cryptocurrency which makes transactions practical for both business and individuals.
+                        Hookedin uses a <a href="https://en.wikipedia.org/wiki/Schnorr_signature">schnorr</a> <a href="https://en.wikipedia.org/wiki/Blind_signature" target="_blank" rel="noopener noreferrer">blind signatures</a>
+                        coin to record ownership of bitcoin. There are 31 different <em>magnitudes</em> of coin, from 0 to 30 (inclusive) where each coin is represents <code>2^magnitude</code> satoshis.
+                        (i.e. the smallest coin represents 1 satoshi, and the largest coin ~10.74 bitcoin). This makes it relatively easy to represent any amount as a set of magnitudes:
                     </p>
+                    <Repl>hi.amountToMagnitudes(10000)</Repl>
                     <p>
                         Our sidechain makes it easy to put money in and out and makes processing payments practical.
                     </p>
