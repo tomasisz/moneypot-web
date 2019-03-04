@@ -43,7 +43,7 @@ const Docs = () => (
                 <Col sm='9'>
                     {
                         sections.map(([title, body]) => <section id={urlize(title)} key={title}>
-                                <h2><a href={ '#' + urlize(title) }>{ title }</a>
+                                <h2>{ title }
                                     <a href={ '#' + urlize(title) } className="anchor-section float-right">#</a>
                                 </h2>
                                 <hr />
