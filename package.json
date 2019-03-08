@@ -34,6 +34,7 @@
     "reactstrap": "^7.1.0"
   },
   "devDependencies": {
+    "@types/react": "^16.8.7",
     "@types/reactstrap": "^7.1.3"
   }
 }
