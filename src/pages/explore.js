@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import SectionDiv from '../components/section-div'
 import { Router, navigate } from "@reach/router"
 import TxPage from '../components/tx-page'
-
+import AddressPage from '../components/address-page'
 
 const App = () => (
     <Layout>
@@ -13,6 +13,7 @@ const App = () => (
                 <QueryTx path="explore/tbtc/" />
                 <QueryTx path="explore/tbtc/tx/" />
                 <TxPage path="explore/tbtc/tx/:page" />
+                <AddressPage path="explore/tbtc/address/:page" />
             </Router>
         </SectionDiv>
     </Layout>

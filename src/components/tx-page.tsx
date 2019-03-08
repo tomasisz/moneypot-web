@@ -286,7 +286,9 @@ function displayInput(item: any, i: number) {
             <div>#{i}</div>
             <div>
                 {item.prevout.value / 100000000} tBTC from {' '}
-                <Link to={"/explore/tbtc/address/" + item.prevout.scriptpubkey_address}>{item.prevout.scriptpubkey_address}</Link>{' '}
+                <Link to={"/explore/tbtc/address/" + item.prevout.scriptpubkey_address}>
+                    {item.prevout.scriptpubkey_address ? item.prevout.scriptpubkey_address : 'Unknown Script Type'}
+                    </Link>{' '}
                 <Link to={"/explore/tbtc/tx/" + item.txid +"/#output-index-"+item.vout}>
                 <Badge color="primary">prev-output <FontAwesomeIcon icon="link" /></Badge>
                 </Link>
