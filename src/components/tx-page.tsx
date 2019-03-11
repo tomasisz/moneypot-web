@@ -2,7 +2,7 @@ import React from 'react'
 import SectionDiv from './section-div'
 import './tx-page.scss'
 import './explore.scss'
-import { Row, Col, Button, Badge } from 'reactstrap';
+import { Row, Col, Badge } from 'reactstrap';
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -137,7 +137,6 @@ class TxPage extends React.Component<any,TxPageState> {
     }
 
     componentDidMount() {
-        console.log('a transaction is: 11440bb2493d3f3ce5c4932bd79dd89c408b9dd7b5affdb0ec7b5434e0eb8ae8');
         console.log('a coinbase txid is: 35e78b61dce421c93cc476a90e2f416ffd13f6e70527b178617c888ebc43f0ff');
         this.getTransactionInfo(this.props.page);
 

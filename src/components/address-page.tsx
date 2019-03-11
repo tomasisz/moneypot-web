@@ -2,84 +2,21 @@ import React from 'react'
 import SectionDiv from './section-div'
 import './tx-page.scss'
 import './explore.scss'
-import { Row, Col, Button, Badge } from 'reactstrap';
-import { Link } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  Button } from 'reactstrap';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronRight, faLink, faExchangeAlt } from '@fortawesome/free-solid-svg-icons'
-
-library.add(faChevronRight, faLink, faExchangeAlt)
-
+import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons'
+import TxPreview from './tx-preview'
+import * as Api from '../api-types'
+library.add( faExchangeAlt)
 
 interface AddressPageState {
     errorAddressApi: any;
-    addressResponse?: AddressResponse;
+    addressResponse?: Api.AddressResponse;
     errorTransactionsApi: any;
-    transactionList?:  TxResponse[];
+    transactionList:  Api.TxResponse[];
     errorMoreTransactionsApi: any;
     outspendsResponse?: any;
     errorOutspendsApi: any;
-
-}
-
-interface Stats {
-    funded_txo_count: number;
-    funded_txo_sum: number;
-    spent_txo_count: number;
-    spent_txo_sum: number;
-    tx_count: number;
-}
-
-
-interface AddressResponse {
-    address: string;
-    chain_stats: Stats;
-    mempool_stats: Stats;
-}
-
-
-
-interface Status {
-    block_height: number;
-    block_hash: string;
-    block_time: number;
-    confirmed: boolean;
-}
-interface Vin {
-    is_coinbase: boolean;
-    prevout: {
-        scriptpubkey: string;
-        scriptpubkey_address: string;
-        scriptpubkey_asm: string;
-        scriptpubkey_type: string;
-        value: number;
-
-    };
-    scriptsig: string;
-    scriptsig_asm: string;
-    sequence: number;
-    txid: string;
-    vout: number;
-    witness: any;
-}
-
-interface Vout {
-    scriptpubkey: string;
-    scriptpubkey_address: string;
-    scriptpubkey_asm: string;
-    scriptpubkey_type: string;
-    value: number;
-}
-
-interface TxResponse {
-    status: Status;
-    size: number;
-    weight: number;
-    fee: number;
-    version: number;
-    locktime: number;
-    vin: Vin[];
-    vout: Vout[];
 
 }
 
@@ -91,7 +28,7 @@ class AddressPage extends React.Component<any,AddressPageState> {
             errorAddressApi: undefined,
             addressResponse: undefined,
             errorTransactionsApi: undefined,
-            transactionList: undefined,
+            transactionList: [],
             errorMoreTransactionsApi: undefined,
             outspendsResponse: undefined,
             errorOutspendsApi: undefined
@@ -134,7 +71,6 @@ class AddressPage extends React.Component<any,AddressPageState> {
                     this.setState({
                         transactionList: result
                     });
-                    console.log('the transactionList length is: ', this.state.transactionList.length)
                 },
                 (error) => {
                     this.setState({
@@ -156,7 +92,6 @@ class AddressPage extends React.Component<any,AddressPageState> {
                     console.log('the additional tx info is: ',result);
                     this.setState({ transactionList:   [...this.state.transactionList, ...result] }
                     );
-                    console.log('the new transactionList length is: ', this.state.transactionList.length)
                 },
                 (error) => {
                     this.setState({
@@ -177,61 +112,24 @@ class AddressPage extends React.Component<any,AddressPageState> {
         if (!addressResponse) {
             return
         }
-        if (! transactionList) {
+        if (transactionList.length === 0) {
             return
         }
 
         if ( transactionList.length < addressResponse.chain_stats.funded_txo_count)
-            console.log('last transaction is: ', transactionList[transactionList.length-1].txid)
         return (
             <div style={{ display: 'flex', alignContent: 'center', padding: '3rem'}}>
-                <Button onClick={(address: string, lastTx: string) => this.getMoreTransactionsInfo(this.props.page, transactionList[transactionList.length-1].txid)}>Load More</Button>
+                <Button onClick={
+                    () => this.getMoreTransactionsInfo(this.props.page, transactionList[transactionList.length-1].txid)}>
+                    Load More
+                </Button>
             </div>
         )
     }
 
-    displayInput(item: any, i: number) {
-        if ( item.is_coinbase ) {
-            return <div key={i}>coinbase</div>
-        }
-        const { page } = this.props
-        return (
-            <div key={i} id={ 'spent-by-'+item.txid+'-'+item.vout} className={ page === item.prevout.scriptpubkey_address ? 'hl-input-and-output-cell' : '' }>
-                <div>#{i}</div>
-                <div>
-                    {item.prevout.value / 100000000} tBTC from {' '}
-                    <Link to={"/explore/tbtc/address/" + item.prevout.scriptpubkey_address}>
-                        {item.prevout.scriptpubkey_address ? item.prevout.scriptpubkey_address : 'Unknown Script Type'}
-                    </Link>{' '}
-                    <Link to={"/explore/tbtc/tx/" + item.txid +"/#output-index-"+item.vout}>
-                        <Badge color="primary">prev-output <FontAwesomeIcon icon="link" /></Badge>
-                    </Link>
-                </div>
-            </div>
-        );
-    }
-
-    displayOutput(output: Vout, i: number){
-        const { page } = this.props
-        return (
-            <div key={i} id={ 'output-index-'+i} className={ page === output.scriptpubkey_address ? 'hl-input-and-output-cell' : '' }>
-                <div>#{i}</div>
-                <div>
-                    { output.value/1e8 } tBTC to {' '}
-                    <Link to={"/explore/tbtc/address/" + output.scriptpubkey_address}>{output.scriptpubkey_address}</Link>{' '}
-                </div>
-            </div>
-        );
-    }
-
-    
-
-
-
 
 
     componentDidMount() {
-        console.log('an address is: 2NAyorkMeZxQk1gfmc4u2q6uunLnXRmmMCN');
         this.getAddressInfo(this.props.page);
         this.getTransactionsInfo(this.props.page);
 
@@ -299,37 +197,7 @@ class AddressPage extends React.Component<any,AddressPageState> {
                     {
                         this.state.transactionList.map((tx, i) => {
                             return (
-                                    <div key={i} className="transaction-card">
-                                        <Row style={{ display: 'flex', justifyContent: 'center'}}>
-                                            <h4 className="transaction-subtitle">
-                                                <Link to={"/explore/tbtc/tx/"+tx.txid}>
-                                                <FontAwesomeIcon icon="exchange-alt" />{' '}
-                                                {tx.txid}
-                                                </Link>
-                                            </h4>
-                                        </Row>
-                                        <Row>
-                                        <Col>
-                                            <h4 className="inputs-and-outputs-subtitle"> { tx.vin.length } Input{ tx.vin.length > 1 ? 's' : ''} Consumed</h4>
-                                            <div className="tx-input-and-output-table">
-                                                {
-                                                    tx.vin.map((vin: Vin, i: number) => this.displayInput(vin,i))
-                                                }
-                                            </div>
-                                        </Col>
-                                        <Col xs={1} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                            <FontAwesomeIcon icon="chevron-right" />
-                                        </Col>
-                                        <Col>
-                                            <h4 className="inputs-and-outputs-subtitle"> { tx.vout.length } Output{ tx.vout.length > 1 ? 's' : ''} Created</h4>
-                                            <div className="tx-input-and-output-table">
-                                                {
-                                                    tx.vout.map((vout: Vout, i: number) => this.displayOutput(vout,i))
-                                                }
-                                            </div>
-                                        </Col>
-                                        </Row>
-                                    </div>
+                                 <TxPreview key={i} tx={tx} highlightAddress={this.props.page}/>
                             );
                         })
                     }
