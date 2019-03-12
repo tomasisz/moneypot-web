@@ -42,6 +42,7 @@ class AddressPage extends React.Component<any,AddressPageState> {
             .then(res => res.json())
             .then(
                 (result) => {
+                    console.log('the address info is: ',result);
                     this.setState({
                         addressResponse: result
                     });
