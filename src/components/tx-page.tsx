@@ -7,6 +7,7 @@ import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronRight, faLink } from '@fortawesome/free-solid-svg-icons'
+import * as Api from '../api-types'
 
 library.add(faChevronRight, faLink)
 
@@ -14,70 +15,9 @@ library.add(faChevronRight, faLink)
 interface TxPageState {
     errorTxApi: any;
     errorOutspendsApi: any;
-    txResponse?: TxResponse;
-    outspendsResponse?: OutspendsResponse;
+    txResponse?: Api.TxResponse;
+    outspendsResponse?: Api.OutspendsResponse;
 }
-
-interface Status {
-    block_height: number;
-    block_hash: string;
-    block_time: number;
-    confirmed: boolean;
-}
-
-interface Vout {
-    scriptpubkey: string;
-    scriptpubkey_address: string;
-    scriptpubkey_asm: string;
-    scriptpubkey_type: string;
-    value: number;
-}
-
-interface TxResponse {
-    status: Status;
-    size: number;
-    weight: number;
-    fee: number;
-    version: number;
-    locktime: number;
-    vin: {
-        is_coinbase: boolean;
-        prevout: {
-            scriptpubkey: string;
-            scriptpubkey_address: string;
-            scriptpubkey_asm: string;
-            scriptpubkey_type: string;
-            value: number;
-
-        };
-        scriptsig: string;
-        scriptsig_asm: string;
-        sequence: number;
-        txid: string;
-        vout: number;
-        witness: any;
-
-    }[];
-    vout: Vout[];
-
-}
-
-type OutspendsResponse = (OutspendsResponseUnspentItem | OutspendsResponseSpentItem )[];
-
-interface OutspendsResponseUnspentItem {
-    spent: false;
-    status: null;
-    txid: null;
-    vin: null;
-}
-
-interface OutspendsResponseSpentItem {
-    spent: true;
-    status: Status;
-    txid: string;
-    vin: number;
-}
-
 
 
 
@@ -158,7 +98,7 @@ class TxPage extends React.Component<any,TxPageState> {
 
     }
 
-    displayOutput(output: Vout, i: number){
+    displayOutput(output: Api.Vout, i: number){
         return (
             <div key={i} id={ 'output-index-'+i}>
                 <div>#{i}</div>
@@ -264,7 +204,7 @@ class TxPage extends React.Component<any,TxPageState> {
                                 <h4 className="inputs-and-outputs-subtitle"> { vout.length } Output{ vout.length > 1 ? 's' : ''} Created</h4>
                                 <div className="tx-input-and-output-table">
                                     {
-                                        vout.map((vout: Vout, i: number) => this.displayOutput(vout,i))
+                                        vout.map((vout: Api.Vout, i: number) => this.displayOutput(vout,i))
                                     }
                                 </div>
                             </Col>

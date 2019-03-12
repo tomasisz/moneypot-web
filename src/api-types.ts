@@ -59,3 +59,19 @@ export interface TxResponse {
     vout: Vout[];
 
 }
+
+export type OutspendsResponse = (OutspendsResponseUnspentItem | OutspendsResponseSpentItem )[];
+
+export interface OutspendsResponseUnspentItem {
+    spent: false;
+    status: null;
+    txid: null;
+    vin: null;
+}
+
+export interface OutspendsResponseSpentItem {
+    spent: true;
+    status: Status;
+    txid: string;
+    vin: number;
+}
