@@ -13,6 +13,22 @@ export default function TxPreview( props: TxPreviewProps ) {
     const {tx, highlightAddress} = props;
     const [outspendsResponse, setOutspendsResponse] = useState<Api.OutspendsResponse>([]);
 
+    function displaySpentStatus(i: number) {
+        const outspend = outspendsResponse[i];
+        if (outspend === undefined) {
+            return <span>unknown</span>
+        }
+        if (!outspend.spent) {
+            return <Badge color="light">unspent</Badge>
+        }
+        return (
+            <Link to={"/explore/tbtc/tx/" + outspend.txid + "/#spent-by-" + tx.txid + "-" + i}>
+                <Badge color="success">spent <FontAwesomeIcon icon="link" /></Badge>
+            </Link>
+        );
+
+    }
+
     function displayOutput(output: Api.Vout, i: number){
         return (
             <div key={i} id={ 'output-index-'+i} className={ highlightAddress === output.scriptpubkey_address ? 'hl-input-and-output-cell' : '' }>
@@ -20,22 +36,30 @@ export default function TxPreview( props: TxPreviewProps ) {
                 <div>
                     { output.value/1e8 } tBTC to {' '}
                     <Link to={"/explore/tbtc/address/" + output.scriptpubkey_address}>{output.scriptpubkey_address}</Link>{' '}
+                    { displaySpentStatus(i) }
                 </div>
             </div>
         );
     }
 
-    async function fetchUsers() {
-        try {
-            const response = await fetch("https://blockstream.info/testnet/api/tx/"+tx.txid+"/outspends");
-            const data = await response.json();
-            setUsers(data.results);
-        } catch (err) {
-            if (err.name !== "AbortError") {
-                // handle error
-            }
-        }
+    async function fetchOutspendsInfo() {
+        fetch("https://blockstream.info/testnet/api/tx/"+tx.txid+"/outspends")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setOutspendsResponse(result);
+                }
+            )
     }
+
+    useEffect(
+        () => {
+            fetchOutspendsInfo();
+        },
+        []
+    );
+
+
 
     return (
         <div key={props.tx.txid} className="transaction-card">
@@ -68,17 +92,6 @@ export default function TxPreview( props: TxPreviewProps ) {
                     </div>
                 </Col>
             </Row>
-            <button onClick={
-                ()=>  fetch("https://blockstream.info/testnet/api/tx/"+tx.txid+"/outspends")
-                    .then(res => res.json())
-                    .then(
-                        (result) => {
-                            console.log('the outspends api info is: ',result);
-                            setOutspendsResponse(result);
-                        }
-                    )
-            }>
-                Fetch</button>
         </div>
     )
 }

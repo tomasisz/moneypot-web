@@ -42,7 +42,6 @@ class AddressPage extends React.Component<any,AddressPageState> {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log('the address info is: ',result);
                     this.setState({
                         addressResponse: result
                     });
@@ -67,7 +66,6 @@ class AddressPage extends React.Component<any,AddressPageState> {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log('the tx info is: ',result);
                     this.setState({
                         transactionList: result
                     });
@@ -84,7 +82,6 @@ class AddressPage extends React.Component<any,AddressPageState> {
     }
 
     getMoreTransactionsInfo(address: string, lastTx: string){
-        console.log('calling api address: ',"https://blockstream.info/testnet/api/address/"+address+"/txs/chain/"+lastTx )
         fetch("https://blockstream.info/testnet/api/address/"+address+"/txs/chain/"+lastTx)
             .then(res => res.json())
             .then(
