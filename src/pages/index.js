@@ -13,7 +13,7 @@ const IndexPage = () => (
   <Layout isHomepage={true}>
       <Hero />
       <SectionDiv>
-          <h2>Wield bitcoin like never before</h2>
+          <h2>hookedin is awesome</h2>
           <p>hookedin allows you to use bitcoin as a consumer or to accept bitcoin payments for your business, offering in both cases attractive advantages</p>
           <Row>
               <Col>

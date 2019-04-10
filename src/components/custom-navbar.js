@@ -7,6 +7,7 @@ import {
     Nav,
     NavItem
 } from "reactstrap";
+import './custom-navbar.scss'
 
 
 const CustomNavbar = (props) => {
