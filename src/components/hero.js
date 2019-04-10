@@ -2,10 +2,12 @@ import React from 'react'
 import { Button, Col, Row } from "reactstrap";
 import bgImg from '../images/bg.jpg'
 
+
+
 const Hero = () => (
     <div
         style={{
-            background: `linear-gradient(rgba(6, 25, 56, 0.75),rgba(56, 6, 16, 0.75)), url(${bgImg}) no-repeat center center fixed `,
+            background: `linear-gradient(rgba(6, 25, 56, 0.1),rgba(56, 6, 16, 0.1)), url(${bgImg}) no-repeat center center fixed `,
             backgroundSize: 'cover',
             minHeight: '80vh',
             margin: '-5rem -2rem 0',

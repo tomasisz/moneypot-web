@@ -6,8 +6,7 @@ import {
     Col
 } from "reactstrap";
 import fastImg from '../images/fast.jpg'
-import privateImg from "../images/private.jpg";
-import cheapImg from '../images/cheap.jpg'
+import privateImg from "../images/private.png";
 import './index-advantages.css'
 
 
@@ -26,18 +25,21 @@ const IndexAdvantages = () => (
                 <p>
                     There will be no way to track your transactions, hookedin offers you the most private service in the market.
                 </p>
+                <p>
+                    All transactions are secured by <b>blinded schnorr signatures</b>.
+                </p>
                 <Link to="/privacy">Learn More</Link>
             </Col>
         </Row>
         <Row className="row-container">
-            <Col xs={4} className="image-container">
-                <img src={cheapImg} alt="cost" className="index-image"/>
-            </Col>
-            <Col className="text-container" xs={8}>
-                <h3 className="header">Save on fees!</h3>
+            <Col xs={4}>
+                <h2 className="header">Save on fees!</h2>
                 <p>
                     hookedin uses a state-of-the-art algorithm for coin selection to ensure the fees paid in bitcoin transactions are the lowest possible.
                 </p>
+            </Col>
+            <Col className="text-container" xs={8}>
+
                 <p style={{ fontWeight: 'bold'}}>See for yourself:</p>
                 <div className="fees-comparison-table">
                     <div>

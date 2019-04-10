@@ -31,14 +31,6 @@ const IndexPage = () => (
           </Row>
       </SectionDiv>
       <IndexAdvantages />
-      <IndexSolidBgSection>
-          <h2>hookedin is secure</h2>
-          <p style={{ textAlign: 'center' }}
-             className="lead"
-          >
-              All transactions are secured by <b>blinded schnorr signatures</b>.
-          </p>
-      </IndexSolidBgSection>
       <SectionDiv>
           <h2>Are you thinking of the possible drawbacks?</h2>
           <Row>
