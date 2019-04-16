@@ -10,7 +10,7 @@ import Repl from '../components/repl'
 const sections = [
     ["Create New Private Key", <div>
         We can easily create new private keys!
-            <Repl>hi.PrivateKey.fromRand().toBech()</Repl>
+            <Repl>hi.PrivateKey.fromRand().toPOD()</Repl>
     </div>],
     ["Convert an amount to magnitudes", <div>
         <Repl>hi.amountToMagnitudes(10000)</Repl>
