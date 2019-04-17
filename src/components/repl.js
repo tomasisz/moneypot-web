@@ -57,7 +57,7 @@ export default class Repl extends React.Component {
           <textarea className="code-area"
                     value={this.state.value}
                     onChange={ this.onChange }
-                    cols={80} rows={3} />
+                    cols={80} rows={ this.state.value.split("\n").length } />
             <pre className="code-result">
             {  this.info() }
             </pre>
