@@ -58,14 +58,19 @@ derivedPublicKey.toPOD();`
         }</Repl>
         <h3>Generating the final address</h3>
         <p>
-          This is the final, and simplest step. We just do an eliptical curve addition of the <code>fundingPublicKey</code> and <code>derivedPublicKey</code>. With the resultant public key, we can convert it to a bitcoin (native segwit) address in the usual way (sha256 it, then rmd160 it, prepend 0 and convert to bech32). hookedin-lib provides convience functions for these operations. ECC addition is the <code>.tweak</code> method on a public key, and <code>.toBitcoinAddress()</code> will turn it into a bitcoin address (string). So putting everything together:
+          What need to convert our <code>derivedPublicKey</code> into a scalar, so we can add it to <code>fundingPublicKey</code>. For this we're going to use: <code>hmacsha256('tweak', derivedPublicKey)</code> then multiply it by the eliptic curve generator <code>G</code> and add it fundingPublicKey. With the resultant public key, we can convert it to a bitcoin (native segwit) address in the usual way (sha256 it, then rmd160 it, prepend 0 and convert to bech32). hookedin-lib provides convience functions for these operations. ECC addition is the <code>.tweak</code> method on a public key, and <code>.toBitcoinAddress()</code> will turn it into a bitcoin address (string). So putting everything together:
         </p>
         <Repl>{
  `const index = 0;
 const str = "pubhi1q0jcjekqlgfjw9t03c2zrknug22jnacrfvs87fvf2s4ug3dkv68uvdv5y3h";
+
 const addressGenerator = hi.PublicKey.fromPOD(str);
 const derivedPublicKey = addressGenerator.derive(index);
-const finalPubKey = hi.Params.fundingPublicKey.tweak(derivedPublicKey);
+
+const tweakBytes = hi.Hash.fromMessage('tweak', derivedPublicKey.buffer).buffer;
+const tweakBy = hi.PrivateKey.fromBytes(tweakBytes).toPublicKey();
+
+const finalPubKey = hi.Params.fundingPublicKey.tweak(tweakBy);
 finalPubKey.toBitcoinAddress();`      }</Repl>
    <p>Remember you can edit the code (and run). So try increasing the index, and you'll get different addresses.</p>
 
