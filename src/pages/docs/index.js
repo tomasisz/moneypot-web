@@ -1,16 +1,18 @@
 import React from 'react'
-import Layout from '../components/layout'
-import { Row, Col } from 'reactstrap';
-import SectionDiv from '../components/section-div'
 import Scrollspy from 'react-scrollspy'
-import Repl from '../components/repl'
+import { Row, Col } from 'reactstrap';
+
+
+import Layout from '../../components/layout'
+import SectionDiv from '../../components/section-div'
+import Repl from '../../components/repl'
 
 
 // an array of [title, react object]
 const sections = [
     ["Create New Private Key", <div>
         We can easily create new private keys!
-            <Repl>hi.PrivateKey.fromRand().toBech()</Repl>
+            <Repl>hi.PrivateKey.fromRand().toPOD()</Repl>
     </div>],
     ["Convert an amount to magnitudes", <div>
         <Repl>hi.amountToMagnitudes(10000)</Repl>
@@ -32,7 +34,7 @@ const Docs = () => (
     <Layout>
         <SectionDiv>
             <Row className="this-row">
-                <Col sm='3' className="sidenav">
+                <Col sm="3" className="sidenav">
                     <Scrollspy
                         className="list-group"
                         componentTag="div"

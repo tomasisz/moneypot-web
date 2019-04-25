@@ -26,7 +26,10 @@ const IndexPage = () => (
               </Col>
               <Col>
                   <h3>E-commerce</h3>
-                  <p>hookedin platform will allow you to process bitcoin payments from your customers, safely, cost effectively and hands free</p>
+                  <p>hookedin platform will allow you to process bitcoin payments from your customers, safely, cost effectively and hands free
+                    Super easy to generate your own <Link to="/docs/derive-deposit-addresses">deposit addresses offline</Link>. 
+
+                  </p>
               </Col>
           </Row>
       </SectionDiv>
