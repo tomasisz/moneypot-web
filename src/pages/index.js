@@ -7,13 +7,15 @@ import { Col, Row } from 'reactstrap'
 import SectionDiv from "../components/section-div";
 import IndexAdvantages from "../components/index-advantages"
 import IndexSolidBgSection from '../components/index-solid-bg-section'
+import WhyHookedin from "../components/why-hookedin";
 
 
 const IndexPage = () => (
   <Layout isHomepage={true}>
       <Hero />
       <SectionDiv>
-          <h2>hookedin is awesome</h2>
+          <WhyHookedin/>
+
           <p>hookedin allows you to use bitcoin as a consumer or to accept bitcoin payments for your business, offering in both cases attractive advantages</p>
           <Row>
               <Col>
@@ -26,7 +28,7 @@ const IndexPage = () => (
               </Col>
               <Col>
                   <h3>E-commerce</h3>
-                  <p>hookedin platform will allow you to process bitcoin payments from your customers, safely, cost effectively and hands free
+                  <p>hookedin platform will allow you to process bitcoin payments from your customers, safely, cost effectively and hands free.
                     Super easy to generate your own <Link to="/docs/derive-deposit-addresses">deposit addresses offline</Link>. 
 
                   </p>

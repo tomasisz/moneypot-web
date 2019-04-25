@@ -6,8 +6,8 @@ import CustomNavbar from './custom-navbar'
 import Footer from './footer'
 import '../styles/layout.scss'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import {faCheck, faChevronRight, faExchangeAlt, faLink} from '@fortawesome/free-solid-svg-icons'
-library.add(faCheck, faChevronRight, faLink, faExchangeAlt)
+import {faCheck, faChevronRight, faExchangeAlt, faLink, faTimes} from '@fortawesome/free-solid-svg-icons'
+library.add(faCheck, faChevronRight, faLink, faExchangeAlt, faTimes)
 
 const Layout = ({ children, isHomepage }) => (
   <StaticQuery

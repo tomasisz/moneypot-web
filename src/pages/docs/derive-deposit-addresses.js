@@ -1,10 +1,14 @@
 import React from 'react';
-
+import Layout from '../../components/layout'
+import SectionDiv from '../../components/section-div'
 // @ts-ignore
 import Repl from '../../components/repl'
 
 export default function() {
-  return <div>
+  return (
+      <Layout>
+          <SectionDiv>
+
       <h1>Derive Deposit Adddress</h1>
       <p>
         Sometimes you'll want to programatically generate deposit addresses. Importantly deposit addresses can be generated completely offline. While it's unfortunately not standardized like bip32 it's a pretty straight forward process (and in-fact simpler than bip32).
@@ -74,5 +78,7 @@ const finalPubKey = hi.Params.fundingPublicKey.tweak(tweakBy);
 finalPubKey.toBitcoinAddress();`      }</Repl>
    <p>Remember you can edit the code (and run). So try increasing the index, and you'll get different addresses.</p>
 
-    </div>
+          </SectionDiv>
+      </Layout>
+  )
 }

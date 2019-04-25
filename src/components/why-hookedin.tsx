@@ -9,32 +9,41 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default function WhyHookedin() {
     return (
     <div>
-
+        <h2>Why hookedin?</h2>
                 <p style={{fontWeight: 'bold'}}>See for yourself:</p>
                 <div className="comparison-table">
                     <div>
                         <div></div>
-                        <div>Send [fast]</div>
-                        <div>Send [economic]</div>
-                        <div>Receive</div>
-                        <div>Instant</div>
-                    </div>
-                    <div>
-                        <div>Any Wallet</div>
-                        <div><FontAwesomeIcon icon="check"/></div>
-                        <div>....</div>
-                        <div>0.1 sat</div>
-                        <div>Not available</div>
-                    </div>
-                    <div>
                         <div>hookedin</div>
-                        <div>....</div>
-                        <div>....</div>
-                        <div>0.01 sat</div>
-                        <div>0.001 sat</div>
+                        <div>Any Wallet</div>
+
+                    </div>
+                    <div>
+                        <div>Private</div>
+                        <div><FontAwesomeIcon icon="check" style={{ color: 'green'}}/></div>
+                        <div><FontAwesomeIcon icon="times" style={{ color: 'red'}}/></div>
+                    </div>
+                    <div>
+                        <div>Send fee [fast]</div>
+                        <div>....sat (-%)</div>
+                        <div>....sat </div>
+                    </div>
+                    <div>
+                        <div>Send fee [eco]</div>
+                        <div>....sat (-%)</div>
+                        <div>....sat </div>
+                    </div>
+                    <div>
+                        <div>Receive fee</div>
+                        <div>....sat (-%)</div>
+                        <div>....sat </div>
+                    </div>
+                    <div>
+                        <div>Instant tx</div>
+                        <div><FontAwesomeIcon icon="check" style={{ color: 'green'}}/> hookedin direct</div>
+                        <div><FontAwesomeIcon icon="times" style={{ color: 'red'}}/></div>
                     </div>
                 </div>
-
     </div>
     )
 }
