@@ -3,12 +3,10 @@ import SectionDiv from './section-div'
 import './tx-page.scss'
 import './explore.scss'
 import { Row } from 'reactstrap';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronRight, faLink } from '@fortawesome/free-solid-svg-icons'
 import * as Api from '../api-types'
 import TxPreview from './tx-preview'
 
-library.add(faChevronRight, faLink)
+
 
 
 interface TxPageState {

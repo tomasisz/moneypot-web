@@ -3,11 +3,8 @@ import SectionDiv from './section-div'
 import './tx-page.scss'
 import './explore.scss'
 import {  Button } from 'reactstrap';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons'
 import TxPreview from './tx-preview'
 import * as Api from '../api-types'
-library.add( faExchangeAlt)
 
 interface AddressPageState {
     errorAddressApi: any;

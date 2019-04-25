@@ -5,9 +5,11 @@ import {
     Row,
     Col
 } from "reactstrap";
-import fastImg from '../images/fast.jpg'
-import privateImg from "../images/private.png";
+
 import './index-advantages.css'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 const IndexAdvantages = () => (
@@ -18,7 +20,6 @@ const IndexAdvantages = () => (
 
         <Row className="row-container" style={{ background: '#f5f5f5'}}>
             <Col xs={4} className="image-container">
-                <img src={privateImg} alt="privacy" className="index-image" />
             </Col>
             <Col className="text-container" xs={8}>
                 <h3 className="header">The most private service</h3>
@@ -51,7 +52,7 @@ const IndexAdvantages = () => (
                     </div>
                     <div>
                         <div>Any Wallet</div>
-                        <div>....</div>
+                        <div><FontAwesomeIcon icon="check" /></div>
                         <div>....</div>
                         <div>0.1 sat</div>
                         <div>Not available</div>
@@ -69,7 +70,6 @@ const IndexAdvantages = () => (
         </Row>
         <Row className="row-container" style={{ background: '#f5f5f5'}}>
             <Col xs={4} className="image-container">
-                <img src={fastImg} alt="fast" className="index-image"/>
             </Col>
             <Col xs={8} className="text-container">
                 <h3 className="header">It's fast, almost instant!</h3>
