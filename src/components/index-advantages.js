@@ -1,14 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
 import {
     Row,
     Col
 } from "reactstrap";
-
 import './index-advantages.css'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 

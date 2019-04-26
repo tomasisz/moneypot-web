@@ -22,27 +22,16 @@ module.exports = {
         name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-          icon: 'static/favicons/android-chrome-512x512.png',
-          icons: [
-              {
-                  src: `/favicons/favicon-16x16.png`,
-                  sizes: `16x16`,
-                  type: `image/png`,
-              },
-              {
-                  src: `/favicons/android-chrome-192x192.png`,
-                  sizes: `192x192`,
-                  type: `image/png`,
-              },
-              {
-                  src: `/favicons/android-chrome-512x512.png`,
-                  sizes: `512x512`,
-                  type: `image/png`,
-              },
-          ],
+          background_color: "#fff",
+          theme_color: "#3D91F9",
+          // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+          // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+          display: "standalone",
+          icon: "src/images/icon.png", // This path is relative to the root of the site.
+          // An optional attribute which provides support for CORS check.
+          // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+          // Any invalid keyword or empty string defaults to `anonymous`
+          crossOrigin: `use-credentials`,
       },
 
     },

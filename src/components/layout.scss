@@ -6,12 +6,12 @@
 //
 // Color system
 //
-@import './colors.scss';
-@import './code-area.scss';
-@import './fees.scss';
+@import '../styles/colors';
+@import '../styles/code-area';
+@import '../styles/fees';
 // Fonts
 //
-@import './fonts.scss';
+@import '../styles/fonts';
 
 // Reassign color vars to semantic color scheme
 $theme-colors: (
