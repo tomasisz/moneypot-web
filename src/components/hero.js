@@ -22,7 +22,7 @@ const Hero = () => (
         >
             <Row style={{     display: 'flex', alignItems: 'center'}}>
                 <Col sm="8">
-                    <h1 className="brand-title">hookedin</h1>
+                    <h1 className="brand-title">moneypot</h1>
                     <p style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '0px'}}>A <del>cutting edge</del> revolutionary </p>
                     <p style={{ fontSize: '3.5rem', fontWeight: 'bold', letterSpacing: '0.4rem'}}>Bitcoin Wallet</p>
                     <p style={{ fontSize: '1.5rem'}}>
@@ -48,16 +48,16 @@ const Hero = () => (
                     </Row>
                 </Col>
                 <Col xs="12" sm="4" md="4" lg="3">
-                    <img src={ScreenshotImg} alt="hookedin wallet screenshot" className="screenshot-hero"/>
+                    <img src={ScreenshotImg} alt="moneypot wallet screenshot" className="screenshot-hero"/>
                     <p
                         style={{ fontSize: '1rem',
                             fontWeight: 'bold',
                             letterSpacing: '0.1rem',
                             margin: '2rem 0'
                         }}
-                    >alpha release: testnet only
+                    >private alpha release: testnet only
                     </p>
-                    <Button size="lg" href="https://wallet.hookedin.com/" color="secondary">Go to Wallet</Button>
+                    <Button size="lg" href="#" color="secondary">Go to Wallet</Button>
                 </Col>
             </Row>
         </div>

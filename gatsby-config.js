@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-      title: "Hookedin",
-      description: "Hookedin, a bitcoin scaling solution",
-      url: "https://hookedin.com", // No trailing slash allowed!
+      title: "moneypot",
+      description: "moneypot, a bitcoin scaling solution",
+      url: "https://www.moneypot.com", // No trailing slash allowed!
   },
   plugins: [
     'gatsby-plugin-react-helmet',

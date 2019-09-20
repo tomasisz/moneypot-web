@@ -19,7 +19,7 @@ const IndexAdvantages = () => (
             <Col className="text-container" xs={8}>
                 <h3 className="header">The most private service</h3>
                 <p>
-                    There will be no way to track your transactions, hookedin offers you the most private service in the market.
+                    There will be no way to track your transactions, moneypot offers you the most private service in the market.
                 </p>
                 <p>
                     All transactions are secured by <b>blinded schnorr signatures</b>.

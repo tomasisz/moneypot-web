@@ -56,7 +56,7 @@ const Fees = () => (
         </SectionDiv>
         <SectionDiv>
             <h2>Executive Notes</h2>
-            <p>One of hookedin's competitive advantages is <span style={{ fontWeight: 'bold'}}>the lowest fees in the market</span>.
+            <p>One of moneypot's competitive advantages is <span style={{ fontWeight: 'bold'}}>the lowest fees in the market</span>.
                 We are not only using several advanced methods to keep the blockchain fees low,
                 but we are also operating at cost, keeping our commissions minimal.</p>
             <p>
@@ -66,7 +66,7 @@ const Fees = () => (
             <p>
                 As long as you collect your bitcoin in less than 12 months, rest assured that you are trading bitcoin the best way.
             </p>
-            <h2>How does hookedin manage to lower the bitcoin transaction fees for you?</h2>
+            <h2>How does moneypot manage to lower the bitcoin transaction fees for you?</h2>
             <ul>
                 <li><b>Coin selection.</b> We own a cutting edge coin selection algorithm that allows our code to make the smartest choices while performing bitcoin transactions. </li>
                 <li><b>Economies of scale.</b> Having a high volume of coins available allows us to perform better coin selection.</li>

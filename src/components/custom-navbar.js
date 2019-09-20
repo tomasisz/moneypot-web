@@ -23,7 +23,7 @@ const CustomNavbar = (props) => {
             to="/"
             style={{fontWeight: '700', letterSpacing:".05rem"}}
         >
-            hookedin
+            moneypot
         </Link>
 
         <NavbarToggler />
@@ -33,7 +33,7 @@ const CustomNavbar = (props) => {
                     <Link className={'nav-link '+ navbarColorClass } to="/overview/">Overview</Link>
                 </NavItem>
                 <NavItem>
-                    <a className={'nav-link '+ navbarColorClass } href="https://wallet.hookedin.com/">Wallet</a>
+                    <a className={'nav-link '+ navbarColorClass } href="#">Wallet</a>
                 </NavItem>
                 <NavItem>
                     <Link className={'nav-link '+ navbarColorClass } to="/fees/">Fees</Link>
