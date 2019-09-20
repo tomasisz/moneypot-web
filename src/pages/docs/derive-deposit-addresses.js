@@ -19,11 +19,11 @@ export default function() {
         So the first thing we need is the <code>fundingPublicKey</code>, this is the servers public key. Our goal is to send the bitcoin in such a way that it can be spent by spent by the server (using the corresponding private key) but also in a way that the server can know <em>who</em> was responsible for sending the bitcoin. The <code>fundingPublicKey</code> is just a constant, which is available from the hookedin-lib (if you choose to use it)
       </p>
       <Repl>
-        hi.Params.fundingPublicKey.toPOD()
+        /* TODO */
       </Repl>
       <p>Or more standardly, in compressed format:</p>
       <Repl>
-        hi.Buffutils.toHex(hi.Params.fundingPublicKey.buffer)
+        hi.Buffutils.toHex(/* TODO */)
       </Repl>
 
       <h2>Our Address Generator</h2>
@@ -65,7 +65,7 @@ derivedPublicKey.toPOD();`
           What need to convert our <code>derivedPublicKey</code> into a scalar, so we can add it to <code>fundingPublicKey</code>. For this we're going to use: <code>hmacsha256('tweak', derivedPublicKey)</code> then multiply it by the eliptic curve generator <code>G</code> and add it fundingPublicKey. With the resultant public key, we can convert it to a bitcoin (native segwit) address in the usual way (sha256 it, then rmd160 it, prepend 0 and convert to bech32). hookedin-lib provides convience functions for these operations. ECC addition is the <code>.tweak</code> method on a public key, and <code>.toBitcoinAddress()</code> will turn it into a bitcoin address (string). So putting everything together:
         </p>
         <Repl>{
- `const index = 0;
+ `/*const index = 0;
 const str = "pubhi1q0jcjekqlgfjw9t03c2zrknug22jnacrfvs87fvf2s4ug3dkv68uvdv5y3h";
 
 const addressGenerator = hi.PublicKey.fromPOD(str);
@@ -75,7 +75,7 @@ const tweakBytes = hi.Hash.fromMessage('tweak', derivedPublicKey.buffer).buffer;
 const tweakBy = hi.PrivateKey.fromBytes(tweakBytes).toPublicKey();
 
 const finalPubKey = hi.Params.fundingPublicKey.tweak(tweakBy);
-finalPubKey.toBitcoinAddress();`      }</Repl>
+finalPubKey.toBitcoinAddress();*/`      }</Repl>
    <p>Remember you can edit the code (and run). So try increasing the index, and you'll get different addresses.</p>
 
           </SectionDiv>
