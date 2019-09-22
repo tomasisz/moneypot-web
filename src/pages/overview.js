@@ -3,7 +3,6 @@ import Layout from '../components/layout'
 import SectionDiv from '../components/section-div'
 import { Link } from 'gatsby'
 import { Row, Col } from 'reactstrap';
-import * as hi from "hookedin-lib";
 
 const Overview = () => (
     <Layout>
@@ -21,11 +20,11 @@ const Overview = () => (
                     </h2>
                     <hr />
                     <p>
-                        Hookedin uses a <a href="https://en.wikipedia.org/wiki/Schnorr_signature">schnorr</a> <a href="https://en.wikipedia.org/wiki/Blind_signature" target="_blank" rel="noopener noreferrer">blind signatures</a>{' '}
+                        moneypot uses a <a href="https://en.wikipedia.org/wiki/Schnorr_signature">schnorr</a> <a href="https://en.wikipedia.org/wiki/Blind_signature" target="_blank" rel="noopener noreferrer">blind signatures</a>{' '}
                         to create a "coin" that represents ownership of bitcoin. There are 31 different <em>magnitudes</em> of coin, from 0 to 30 (inclusive) where each coin is represents <code>2^magnitude</code> satoshis.
                         (i.e. the smallest coin represents 1 satoshi, and the largest coin ~10.74 bitcoin). This makes it relatively <Link to="/docs/#convert-an-amount-to-magnitudes">easy to represent any amount as a set of magnitudes</Link>.
                         Bitcoin can be seemlessly converted to blinded coins. The blinded coins have incredible privacy, speed and cost characteristics that make them exceedingly practical
-                        to use. And at any time they can be converted back to regular bitcoin. Using hookedin is quite simply the cheapest and most private way to use bitcoin. 
+                        to use. And at any time they can be converted back to regular bitcoin. Using moneypot is quite simply the cheapest and most private way to use bitcoin.
                     </p>
                     <h2 id="provably-honest">Provably Honest
                         <a href="#provably-honest" className="anchor-section float-right">#</a>
@@ -48,7 +47,7 @@ const Overview = () => (
                         <a href="#hookins" className="anchor-section float-right">#</a>
                     </h2>
                     <p>
-                        A hookin (aka pegin) is the process of converting bitcoin into hookedin coins. With a little eliptical curve magic, we can generate
+                        A hookin (aka pegin) is the process of converting bitcoin into moneypot coins. With a little eliptical curve magic, we can generate
                         a special <em>hookin address</em> that is indistinguisable from a normal (native segwit) bitcoin address. Then <em>after</em> bitcoin has
                         been sent to that address and safely confirmed the client gives the server the neccessary information to spend the bitcoin
                         (most importantly the public key of the owner that was used to generate the hookin address) and the server gives the client some blinded coins, which
@@ -65,7 +64,7 @@ const Overview = () => (
                         A hookout (aka pegout) is the opposite of a hookin. It is the process of taking a set of blinded coins, and ask the server to send that amount to
                         a bitcoin address. Furthermore you can add some conditions to the hookout, such as the feerate to use for the bitcoin transfer and if you need the
                         transfer to happen immediately or not. The server is able to leverage economies of scale with large amounts of possible inputs, and able to
-                        batch transations (when appropriate). For this reason, using hookedin as a bitcoin wallet is typically <em>signficantly</em> cheaper than using a
+                        batch transations (when appropriate). For this reason, using moneypot as a bitcoin wallet is typically <em>signficantly</em> cheaper than using a
                         traditional wallet. 
                     </p>
                     <h2 id="hookouts">Transfers
@@ -86,7 +85,7 @@ const Overview = () => (
                 <Col sm="12" md={{ size: 10, offset: 1 }}>
                     <h1>Coins</h1>
                     <p>
-                        There are exactly 32 different coins in hookedin, each having a different <strong>magnitude</strong>
+                        There are exactly 32 different coins in moneypot, each having a different <strong>magnitude</strong>
                     </p>
                     <table>
                         <thead>

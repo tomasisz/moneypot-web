@@ -15,7 +15,7 @@ const IntegrationGuide = () => (
                     <hr />
                     <p>
                         1. Generate hookin address.
-                        This is done <b>offline</b> from <i>hookedin</i>.
+                        This is done <b>offline</b> from <i>moneypot</i>.
                     </p>
                     <p>
                         2. Save hookin address in your database.
@@ -24,7 +24,7 @@ const IntegrationGuide = () => (
                         3. Give hookin address to users as a deposit address.
                     </p>
                     <p>
-                        4. When the user deposits, credit the user and claim <b>hookedin blinded coins</b>.
+                        4. When the user deposits, credit the user and claim <b>moneypot blinded coins</b>.
                     </p>
                     <h2 id="withdrawals">Withdrawals
                         <a href="#withdrawals" className="anchor-section float-right">#</a>
