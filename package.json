@@ -24,7 +24,7 @@
     "gatsby-plugin-typescript": "^2.1.9",
     "gatsby-source-filesystem": "^2.1.25",
     "gatsby-transformer-sharp": "^2.1.18",
-    "moneypot-lib": "git+https://github.com/moneypot/moneypot-lib.git",
+    "hookedin-lib": "git+https://github.com/moneypot/moneypot-lib.git",
     "node-sass": "^4.12.0",
     "npm": "^6.11.3",
     "react": "^16.9.0",
