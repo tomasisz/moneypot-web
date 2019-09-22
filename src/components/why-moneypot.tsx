@@ -1,12 +1,12 @@
 import React from 'react'
 
-import './why-hookedin.scss'
+import './why-moneypot.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
-export default function WhyHookedin() {
+export default function Whymoneypot() {
     return (    
     <div>
         <h2>Coming soon..</h2>
@@ -18,7 +18,7 @@ export default function WhyHookedin() {
                 <div className="comparison-table">
                     <div>
                         <div></div>
-                        <div>hookedin</div>
+                        <div>moneypot</div>
                         <div>Any Wallet</div>
 
                     </div>
@@ -44,7 +44,7 @@ export default function WhyHookedin() {
                     </div>
                     <div>
                         <div>Instant tx</div>
-                        <div><FontAwesomeIcon icon="check" style={{ color: 'green'}}/> hookedin direct</div>
+                        <div><FontAwesomeIcon icon="check" style={{ color: 'green'}}/> moneypot direct</div>
                         <div><FontAwesomeIcon icon="times" style={{ color: 'red'}}/></div>
                     </div>
                 </div>
