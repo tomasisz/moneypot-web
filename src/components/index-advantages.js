@@ -4,7 +4,7 @@ import {
     Row,
     Col
 } from "reactstrap";
-import './index-advantages.css'
+import '../scss/components/_index-advantages.scss'
 
 
 

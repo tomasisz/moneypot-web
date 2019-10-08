@@ -1,7 +1,5 @@
 import React from 'react'
 
-import './why-moneypot.scss'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
@@ -9,10 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default function Whymoneypot() {
     return (    
     <div>
-        <h2>Coming soon..</h2>
-        <p>
-            The moneypot.com domain was aquired from monsterbyte.io and will be used for an exciting new crypto wallet. Currently in limit private testing, so please come back in a week or two!
-        </p>
+        <div className="index-notice">
+            <h2>Coming soon...</h2>
+            <p>
+                The moneypot.com domain was aquired from monsterbyte.io and will be used for an exciting new crypto wallet. Currently in limit private testing, so please come back in a week or two!
+            </p>
+        </div>
         <h2>Why moneypot?</h2>
                 <p style={{fontWeight: 'bold'}}>See for yourself:</p>
                 <div className="comparison-table">

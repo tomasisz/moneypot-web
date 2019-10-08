@@ -1,7 +1,5 @@
 import React from 'react'
 import { Button, Col, Row, Badge } from "reactstrap";
-import './hero.scss'
-import ScreenshotImg from '../images/pixel2-screenshot.png'
 
 const Hero = () => (
     <div
@@ -23,8 +21,8 @@ const Hero = () => (
             <Row style={{     display: 'flex', alignItems: 'center'}}>
                 <Col sm="8">
                     <h1 className="brand-title">moneypot</h1>
-                    <p style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '0px'}}>A <del>cutting edge</del> revolutionary </p>
-                    <p style={{ fontSize: '3.5rem', fontWeight: 'bold', letterSpacing: '0.4rem'}}>Bitcoin Wallet</p>
+                    <p className="hero-first-text">A <del>cutting edge</del> revolutionary </p>
+                    <p className="hero-second-text">Bitcoin Wallet</p>
                     <p style={{ fontSize: '1.5rem'}}>
                         <Badge color="primary">lowest fees</Badge>{'  '}
                         <Badge color="primary">private</Badge>{'  '}
@@ -32,32 +30,17 @@ const Hero = () => (
                         <Badge color="primary">open source</Badge>{'  '}
                     </p>
 
-                    <p
-                        style={{ fontSize: '1.4rem',
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.3rem',
-                            marginTop: '5rem',
-                            fontStyle: 'italic'
-                        }}
-                    >
+                    <p className="hero-third-text">
                         Wield bitcoin like never before
                     </p>
 
-                    <Row>
-
-                    </Row>
                 </Col>
                 <Col xs="12" sm="4" md="4" lg="3">
-                    <img src={ScreenshotImg} alt="moneypot wallet screenshot" className="screenshot-hero"/>
-                    <p
-                        style={{ fontSize: '1rem',
-                            fontWeight: 'bold',
-                            letterSpacing: '0.1rem',
-                            margin: '2rem 0'
-                        }}
-                    >private alpha release: testnet only
-                    </p>
-                    <Button size="lg" href="#" color="secondary">Go to Wallet</Button>
+                <div className="hero-fourth-text">
+                    <p >private alpha </p>
+                    <p>release: testnet only</p>
+                </div>
+                    <Button size="lg" href="https://wallet.moneypot.com" color="secondary">Go to Wallet</Button>
                 </Col>
             </Row>
         </div>

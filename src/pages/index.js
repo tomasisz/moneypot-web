@@ -67,11 +67,11 @@ const IndexPage = () => (
           </p>
           <Row>
               <Col xs={{ size: 4, offset: 4 }}>
-          <Link
+          <a
               className="btn-lg btn-secondary btn-block"
-              to="/overview/"
+              href="https://wallet.moneypot.com"
               style={{ textAlign: 'center'}}
-          >Call to Action</Link>
+          >Go to Wallet</a>
               </Col>
           </Row>
       </IndexSolidBgSection>

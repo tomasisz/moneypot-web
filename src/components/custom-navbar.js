@@ -7,7 +7,6 @@ import {
     Nav,
     NavItem
 } from "reactstrap";
-import './custom-navbar.scss'
 
 
 const CustomNavbar = (props) => {
@@ -21,7 +20,6 @@ const CustomNavbar = (props) => {
         <Link
             className={'custom-navbar-brand '+ navbarColorClass }
             to="/"
-            style={{fontWeight: '700', letterSpacing:".05rem"}}
         >
             moneypot
         </Link>
@@ -33,7 +31,7 @@ const CustomNavbar = (props) => {
                     <Link className={'nav-link '+ navbarColorClass } to="/overview/">Overview</Link>
                 </NavItem>
                 <NavItem>
-                    <a className={'nav-link '+ navbarColorClass } href="#">Wallet</a>
+                    <a className={'nav-link '+ navbarColorClass } href="https://wallet.moneypot.com">Wallet</a>
                 </NavItem>
                 <NavItem>
                     <Link className={'nav-link '+ navbarColorClass } to="/fees/">Fees</Link>
