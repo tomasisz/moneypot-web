@@ -16,7 +16,7 @@ export default function() {
 
       <h2>The fundingPublicKey</h2>
       <p>
-        So the first thing we need is the <code>fundingPublicKey</code>, this is the servers public key. Our goal is to send the bitcoin in such a way that it can be spent by spent by the server (using the corresponding private key) but also in a way that the server can know <em>who</em> was responsible for sending the bitcoin. The <code>fundingPublicKey</code> is just a constant, which is available from the moneypot-lib (if you choose to use it)
+        So the first thing we need is the <code>fundingPublicKey</code>, this is the servers public key. Our goal is to send the bitcoin in such a way that it can be spent by spent by the server (using the corresponding private key) but also in a way that the server can know <em>who</em> was responsible for sending the bitcoin. The <code>fundingPublicKey</code> is just a constant, which is available from the hookedin-lib (if you choose to use it)
       </p>
       <Repl>
         /* TODO */
@@ -62,7 +62,7 @@ derivedPublicKey.toPOD();`
         }</Repl>
         <h3>Generating the final address</h3>
         <p>
-          What need to convert our <code>derivedPublicKey</code> into a scalar, so we can add it to <code>fundingPublicKey</code>. For this we're going to use: <code>hmacsha256('tweak', derivedPublicKey)</code> then multiply it by the eliptic curve generator <code>G</code> and add it fundingPublicKey. With the resultant public key, we can convert it to a bitcoin (native segwit) address in the usual way (sha256 it, then rmd160 it, prepend 0 and convert to bech32). moneypot-lib provides convience functions for these operations. ECC addition is the <code>.tweak</code> method on a public key, and <code>.toBitcoinAddress()</code> will turn it into a bitcoin address (string). So putting everything together:
+          What need to convert our <code>derivedPublicKey</code> into a scalar, so we can add it to <code>fundingPublicKey</code>. For this we're going to use: <code>hmacsha256('tweak', derivedPublicKey)</code> then multiply it by the eliptic curve generator <code>G</code> and add it fundingPublicKey. With the resultant public key, we can convert it to a bitcoin (native segwit) address in the usual way (sha256 it, then rmd160 it, prepend 0 and convert to bech32). hookedin-lib provides convience functions for these operations. ECC addition is the <code>.tweak</code> method on a public key, and <code>.toBitcoinAddress()</code> will turn it into a bitcoin address (string). So putting everything together:
         </p>
         <Repl>{
  `/*const index = 0;
