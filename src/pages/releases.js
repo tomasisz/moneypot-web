@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Layout from "../components/layout";
 import SectionDiv from "../components/section-div";
 
@@ -7,6 +7,7 @@ import { Link } from "gatsby";
 import {
   Alert,
   Button,
+  Col,
   Card,
   CardBody,
   CardImg,
@@ -18,127 +19,165 @@ import {
   ToastBody, 
   ToastHeader
 
-} from "reactstrap"; // gatsby source-filesystem this
+} from "reactstrap"; 
 
-
-// what i'd want is a global var that catches the current latest version url.
-
-// ..
 const CurrentWindowsSetup = "/latest-version/latest-version.json";
-
-// ?
 const themecolor = "#3D91F9";
 
 
- const toaster = () => { 
- alert('* Has been copied to clipboard!')
-      // some toaster functionality here
+// Using COL instead of alert since they're styled a bit better.
+
+const toaster = () => { 
+alert('* Has been copied to clipboard!')
+     // some toaster functionality here TODO
+}
+
+// glob?
+ const CopyPaste = () => { 
+    const mark = document.createElement('textarea')
+    mark.setAttribute('readonly', 'readonly')
+    mark.value = document.getElementById("copytext").innerHTML
+    mark.style.position = 'fixed'
+    mark.style.top = 0
+    mark.style.clip = 'rect(0, 0, 0, 0)'
+    document.body.appendChild(mark)
+    mark.select()
+    document.execCommand('copy')
+    document.body.removeChild(mark)
+    toaster() 
+}
+
+const FetchDate = () => {
+  // const [hasError, setErrors] = useState(false);
+  const [thisDate, setDate] = useState({});
+
+  async function fetchData() {
+    const res = await fetch("https://moneypot.com/latest-version/latest-version.json");
+    const json = await res.json()
+     const key = "latestDate"
+     const value = Object.values(json)[Object.keys(json).indexOf(key)]
+    //  const strWithOutQuotes= value.replace(/"/g, '');
+     setDate(value) 
+  }
+  const x = new Date(thisDate).toLocaleDateString()
+
+  useEffect(() => {
+    fetchData();
+  });
+
+  return (
+    JSON.stringify(x).replace(/"/g, '')
+  );
+}
+
+const CalculateDate = () => {
+  // const [hasError, setErrors] = useState(false);
+  const [thisDate, setDate] = useState({});
+
+  async function fetchData() {
+    const res = await fetch("https://moneypot.com/latest-version/latest-version.json");
+    const json = await res.json()
+     const key = "latestDate"
+     const value = Object.values(json)[Object.keys(json).indexOf(key)]
+    //  const strWithOutQuotes= value.replace(/"/g, '');
+     setDate(value) 
+  }
+  useEffect(() => {
+    fetchData();
+  });
+  const x = new Date().getTime() - new Date(thisDate).getTime()
+  const thisdays =  Math.round(x / (60*60*24*1000))
+
+  return (
+  JSON.stringify(thisdays)
+  );
+}
 
 
- }
 
+
+const FetchURL = () => {
+  // const [hasError, setErrors] = useState(false);
+  const [URL, setURL] = useState({});
+
+  async function fetchData() {
+    const res = await fetch("https://moneypot.com/latest-version/latest-version.json");
+    const json = await res.json()
+     const key = "versionScript"
+     const value = Object.values(json)[Object.keys(json).indexOf(key)]
+    //  const strWithOutQuotes= value.replace(/"/g, '');
+     setURL(value) 
+  }
+
+  useEffect(() => {
+    fetchData();
+  });
+
+  return (
+    JSON.stringify(URL).replace(/"/g, '')  
+  );
+};
 
 const Releases = (props) => (
-
-
-
   
+ 
+
+
   <React.Fragment>
     <Layout>
-      
     <SectionDiv>
     <h1>Releases</h1>
-        <h2 id="Downloads">
-          Downloads
-          <a href="#Downloads" className="anchor-section float-right">
-            #
-          </a>
-        </h2>
-        <hr />
-
-        {/* Weird Div margin styling  */}
-        {/* Need to rejustify*/}
-        {/* <Row style={{justifyContent: "center",}}> */}
+    <h2 id="Downloads">
+    Downloads
+    <a href="#Downloads" className="anchor-section float-right">
+      #
+    </a>
+  </h2>
+    <hr /> {/* Weird Div margin styling */} {/* Need to rejustify*/} {/*
+    <Row style={{justifyContent: "center",}}> */}
         <Row>
-          {" "}
-          <div style={{ margin: 10,}}>
             {" "}
-            <Card
-              style={{ maxWidth: 490, minWidth: 490,  }}
-              body
-              outline
-              color="primary"
-              
-            >
-              {/* <CardImg top width="100%" src={icon} alt="Hookedin placeholder" width="100" height="100" /> */}
-              <CardBody>
-                <CardTitle>
-                  <h2 style={{ color: themecolor }}>Windows Desktop Wallet</h2>
-                </CardTitle>
-                <CardSubtitle>
-                  <p style={{ color: themecolor }}>
-                    download the windows binaries!
-                  </p>
-                </CardSubtitle>
-                {/* <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText> */}
-                <a
-                  style={{ textDecoration: "none", color: "white" }}
-                  href={CurrentWindowsSetup}
-                  download
-                >
-                  <Button color="primary" block>
-                    Windows Setup
-                  </Button>
-                </a>
-                <br /> 
-                <Button>Windows setup signature</Button>{" "}
-                <Button>.exe signature</Button>
-              </CardBody>
-            </Card>
-          </div>
-          <div style={{ margin: 10 }}>
-            {" "}
-            <Card
-              style={{ maxWidth: 490, minWidth: 490 }}
-              body
-              outline
-              color="primary"
-            >
-              {/* <CardImg top width="100%" src={icon} alt="Hookedin placeholder" width="100" height="100" /> */}
-              <CardBody>
-                <CardTitle>
-                  <h2 style={{ color: themecolor }}>Linux Desktop Wallet</h2>
-                </CardTitle>
-                <CardSubtitle>
-                  <p style={{ color: themecolor }}>
-                    download the linux binaries!
-                  </p>
-                </CardSubtitle>
-                {/* <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText> */}
-                <Button color="primary" block>
-                  Linux Setup
-                </Button>
-                <br /> 
-                <Button>Linux setup signature</Button>
-              </CardBody>
-            </Card>{" "}
-          </div>
+            <div style={{ margin: 10 }}>
+                {" "}
+                <Card style={{ maxWidth: 490, minWidth: 490 }} body outline color="primary">
+                    <CardBody>
+                        <CardTitle>
+                            <h2 style={{ color: themecolor }}>Windows Desktop Wallet</h2>
+                        </CardTitle>
+                        <CardSubtitle>
+                            <p style={{ color: themecolor }}>download the windows binaries!</p>
+                        </CardSubtitle>
+                        <a style={{ textDecoration: "none", color: "white" }} href={CurrentWindowsSetup} download>
+                            <Button color="primary" block>
+                                Windows Setup
+                            </Button>
+                        </a>
+                        <br />
+                        <Button>Windows setup signature</Button>{" "}
+                        <Button>.exe signature</Button>
+                    </CardBody>
+                </Card>
+            </div>
+            <div style={{ margin: 10 }}>
+                {" "}
+                <Card style={{ maxWidth: 490, minWidth: 490 }} body outline color="primary">
+                    <CardBody>
+                        <CardTitle>
+                            <h2 style={{ color: themecolor }}>Linux Desktop Wallet</h2>
+                        </CardTitle>
+                        <CardSubtitle>
+                            <p style={{ color: themecolor }}>download the linux binaries!</p>
+                        </CardSubtitle>
+                        <Button color="primary" block>
+                            Linux Setup
+                        </Button>
+                        <br />
+                        <Button>Linux setup signature</Button>
+                    </CardBody>
+                </Card>{" "}
+            </div>
         </Row>
-        <br />
-        <br />
-        {/*
- <hr/>
-
- <h3 id="signatures">Signatures
-            <a href="#signatures" className="anchor-section float-right">#</a>
-        </h3>
- <a href="/">Windows setup Signatures</a>  <br/>
- <a href="/">Windows moneypot.exe Signatures</a>  <br/>
- <a href="/">Linux Signatures</a>  <br/>
- <br/>
-<p> <h3> Don't know what to do with this? See:  ???</h3></p>
- <p> <h3>Source code: </h3></p> */}
-      </SectionDiv>
+   </SectionDiv>
 
 
       <SectionDiv>
@@ -159,35 +198,24 @@ const Releases = (props) => (
           <span style={{ fontWeight: "bold" }}>Version URL</span>: <br />
           <br />
          
-          <Alert color="info">
+
+
+         <Col className="fee-box list-group-item-info" sm={{ size: 12, offset: 3 }}> 
             <h2>
-            <span id="copytext"  onClick={e => {
-            const mark = document.createElement('textarea')
-            mark.setAttribute('readonly', 'readonly')
-            mark.value = document.getElementById("copytext").innerHTML
-            mark.style.position = 'fixed'
-            mark.style.top = 0
-            mark.style.clip = 'rect(0, 0, 0, 0)'
-            document.body.appendChild(mark)
-            mark.select()
-            document.execCommand('copy')
-            document.body.removeChild(mark)
-            toaster()
-          }}
-          >
-         https://wallet.moneypot.com/main.08514b5d8eef3b9ddd8f.js#XqOLxPU/AbF3J5F8IaphFFt7H+JsV5jeqn8QvTspYAE=
+            <span id="copytext"  onClick={e => {CopyPaste()}}  >
+         <FetchURL/>
           </span>
           </h2>{" "}
-          </Alert>
-        
-         <Alert style={{ maxWidth: 1000 }}>
-          The version URL has last been changed X days ago! For more information
+          </Col>
+          <Col className="fee-box list-group-item-success" sm={{ size: 12, offset: 3 }}> 
+  The version URL has last been changed on <strong><FetchDate></FetchDate></strong> which is <strong>~<CalculateDate></CalculateDate></strong>  days ago! For more information
           please check the{" "}
           <Link to="/changelog/#version-history">Version History</Link>
-         </Alert>
-         <Alert color="danger" style={{  maxWidth: 600}}>Worried this URL might be malicious? Please check:  ??? </Alert>
-      </SectionDiv>
+         </Col>
 
+         <Col className="fee-box list-group-item-danger" sm={{ size: 4, offset: 3 }}>Worried this URL might be malicious? Please check:  ??? </Col>
+      </SectionDiv>
+      
 
 
    
@@ -275,26 +303,30 @@ const Releases = (props) => (
         <hr/>
           {" "}
           A valid example of this would be the following URL:
-          <Alert color="secondary">
-            https://wallet.moneypot.com/main.08514b5d8eef3b9ddd8f.js#XqOLxPU/AbF3J5F8IaphFFt7H+JsV5jeqn8QvTspYAE=
-          </Alert>
+          <Col className="fee-box list-group-item-secondary" sm={{ size: 12, offset: 3 }}> 
+          https://wallet.moneypot.com/main.08514b5d8eef3b9ddd8f.js#XqOLxPU/AbF3J5F8IaphFFt7H+JsV5jeqn8QvTspYAE=
+          </Col>
+
           Where, if we break it down a bit further: <br />
           <br />
           Would be the domain name:
-          <Alert style={{ maxWidth: 700 }} color="info">
-            https://wallet.moneypot.com/
-          </Alert>
+          <Col className="fee-box list-group-item-info" sm={{ size: 6, offset: 3 }}> 
+          https://wallet.moneypot.com/
+          </Col>
           Would be the main.js source:
-          <Alert style={{ maxWidth: 700 }} color="info">
-            main.08514b5d8eef3b9ddd8f.js
-          </Alert>
-          Would be the sha-256 integrity check:
-          <Alert style={{ maxWidth: 700 }} color="info">
-            XqOLxPU/AbF3J5F8IaphFFt7H+JsV5jeqn8QvTspYAE (=)
-          </Alert>
+          <Col className="fee-box list-group-item-info" sm={{ size: 6, offset: 3 }}> 
+          main.08514b5d8eef3b9ddd8f.js
+          </Col>
+          Would be the sha-256 hash:
+          <Col className="fee-box list-group-item-info" sm={{ size: 6, offset: 3 }}> 
+          XqOLxPU/AbF3J5F8IaphFFt7H+JsV5jeqn8QvTspYAE (=)
+          </Col>
         <br/>
         <hr />
       </SectionDiv>
+
+
+
       <SectionDiv>
 
       </SectionDiv>
