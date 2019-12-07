@@ -25,6 +25,10 @@ const CurrentWindowsSetup = "/latest-version/latest-version.json";
 const themecolor = "#3D91F9";
 
 
+/// ##### For security: i'd propose the following: Moving this off the moneypot.com domain- 
+/// ##### and fetch it from another domain. That way- even if either domain get's hijacked, we can still fall back on either domain.
+
+
 // Using COL instead of alert since they're styled a bit better.
 
 const toaster = () => { 
@@ -52,7 +56,7 @@ const FetchDate = () => {
   const [thisDate, setDate] = useState({});
 
   async function fetchData() {
-    const res = await fetch("https://moneypot.com/latest-version/latest-version.json");
+    const res = await fetch("../../latest-version/latest-version.json"    );
     const json = await res.json()
      const key = "latestDate"
      const value = Object.values(json)[Object.keys(json).indexOf(key)]
@@ -75,7 +79,8 @@ const CalculateDate = () => {
   const [thisDate, setDate] = useState({});
 
   async function fetchData() {
-    const res = await fetch("https://moneypot.com/latest-version/latest-version.json");
+    const res = await fetch("../../latest-version/latest-version.json");
+    
     const json = await res.json()
      const key = "latestDate"
      const value = Object.values(json)[Object.keys(json).indexOf(key)]
@@ -92,7 +97,7 @@ const CalculateDate = () => {
   JSON.stringify(thisdays)
   );
 }
-
+ 
 
 
 
@@ -101,7 +106,7 @@ const FetchURL = () => {
   const [URL, setURL] = useState({});
 
   async function fetchData() {
-    const res = await fetch("https://moneypot.com/latest-version/latest-version.json");
+    const res = await fetch("../../latest-version/latest-version.json" );
     const json = await res.json()
      const key = "versionScript"
      const value = Object.values(json)[Object.keys(json).indexOf(key)]
